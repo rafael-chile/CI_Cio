@@ -32,6 +32,7 @@ class Auth extends CI_Controller {
 		{
 			//redirect them to the home page because they must be an administrator to view this
 			//redirect('/', 'refresh');
+			//AF: Sent to inter.php and read the group in "Inter" controller and depends on that, print sections.
 			echo 'Hi';
 		}
 		else
@@ -71,7 +72,10 @@ class Auth extends CI_Controller {
 					//if the login is successful
 					//redirect them back to the home page
 					$this->session->set_flashdata('message', $this->ion_auth->messages());
-					redirect('/', 'refresh');
+					
+					//redirect('/', 'refresh'); //AF: Initial value. This is used when all the application depends on the Login System.
+					
+					redirect('auth', 'refresh');
 				}
 				else
 				{ 
