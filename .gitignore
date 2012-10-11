@@ -6,4 +6,3 @@ user_guide/*
 */logs/!index.html
 */cache/*
 */cache/!index.html
-!application/config/ion_auth.php
