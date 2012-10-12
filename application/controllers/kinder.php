@@ -9,7 +9,13 @@ class Kinder extends CI_Controller {
 	
 	public function index()
 	{
-		$this->load->view('kinder');
+		
+		$data['title']='Kinder';
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/topmenu', $data);
+		$this->load->view('kinder', $data);
+		$this->load->view('templates/footer', $data);
 	}
 }
 

@@ -5,17 +5,17 @@ class Conocenos extends CI_Controller {
 	/**
 	 * Index Page for this controller.
 	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *
-	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	
 	public function index()
 	{
-		$this->load->view('conocenos');
+		
+		$data['title']='Conocenos';
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/topmenu', $data);
+		$this->load->view('conocenos', $data);
+		$this->load->view('templates/footer', $data);
 	}
 }
 

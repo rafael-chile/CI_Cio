@@ -4,11 +4,18 @@ class Primaria extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
+	 *
 	 */
 	
 	public function index()
 	{
-		$this->load->view('primaria');
+		
+		$data['title']='Primaria';
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/topmenu', $data);
+		$this->load->view('primaria', $data);
+		$this->load->view('templates/footer', $data);
 	}
 }
 

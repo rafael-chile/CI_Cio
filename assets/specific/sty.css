@@ -1,0 +1,112 @@
+	/*
+	++++++++++++++++++++++++++++++++
+	++		GENERAL
+	++++++++++++++++++++++++++++++++
+	*/
+	body {  
+			background-repeat:repeat-x;
+			background-color:#001330;
+			margin:0px;
+			padding:0px;
+        }
+	
+	.cionet {background-image:url(http://www.colegiociodemexico.edu.mx/test_new/img/bg.jpg);}
+
+	.header	{background-image:url(http://www.colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_15.jpg);}
+
+	img { border:0px;}
+
+	#contenedor {width:895px;}
+	
+	#contenido { height:483px; background-color:#FFF; margin:0px; padding:0px;}
+	
+	#footer { background-image:url(http://www.colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_15.jpg); }
+
+	/*
+	Agregar a los footers fuera de Inter*/
+	#footer .foot {width:895px; heigh:80px;}
+
+	/*
+	++++++++++++++++++++++++++++++++
+	++		INTER STYLE
+	++++++++++++++++++++++++++++++++
+	*/
+
+	#tablas	{padding:20px; }
+				
+	.container	 {background-color: white;}
+
+	.inicie_sesion {height:300px; padding-top:50px;}
+
+	.row-fluid .span4 p,h2  {padding:0 10px 0 25px;}
+
+	.menusup	{margin:20px 25px;}
+	.btn-salir	{margin:20px 25px;}
+
+	/*
+	++++++++++++++++++++++++++++++++
+	++		FORMULARIO DE CIONET
+	++++++++++++++++++++++++++++++++
+	*/
+    .contacto{
+        width:240px;
+        border: 1px solid #CED5D7;
+        border-radius: 6px;
+        padding: 45px 45px 20px;
+        margin-top:30px;
+        background-color: white;
+        box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+        height: 200px;
+    }
+
+    .contacto label{
+        display: block;
+        margin-left: 20px;
+        #margin-left: 0px;
+        text-align: left;
+        font-weight: bold;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 105%;
+    }
+    
+    .contacto div{
+        margin-bottom: 15px;
+    }
+    
+    .contacto input[type='text'], .contacto input[type='password']{
+        padding: 7px 6px;
+        width: 200px;
+        border: 1px solid #CED5D7;
+        resize: none;
+        box-shadow:0 0 0 3px #EEF5F7;
+        margin: 5px 0;
+        height: 30px;
+    }
+
+    .contacto input[type='text']:focus, input[type='password']:focus{
+        outline: none;
+        box-shadow:0 0 0 2px lightblue;
+    }
+
+    .contacto input[type='submit']{
+        border: 1px solid #CED5D7;
+        box-shadow:0 0 0 3px #EEF5F7;
+        float: right;
+        margin-right: 20px;
+        padding: 8px 16px;
+        font-weight: bold;
+        text-shadow: 1px 1px 0px white;
+        background: #e4f1f6;
+        background: -moz-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
+        background: -webkit-linear-gradient(top, #e4f1f6 0%,#cfe6ef 100%);
+    }
+    .contacto input[type='submit']:hover{
+        background: #edfcff;
+        background: -moz-linear-gradient(top, #edfcff 0%, #cfe6ef 100%);
+        background: -webkit-linear-gradient(top, #edfcff 0%,#cfe6ef 100%);
+    }
+    .contacto input[type='submit']:active{
+        background: #cfe6ef;
+        background: -moz-linear-gradient(top, #cfe6ef 0%, #edfcff 100%);
+        background: -webkit-linear-gradient(top, #cfe6ef 0%,#edfcff 100%);
+    }

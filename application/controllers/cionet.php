@@ -4,11 +4,18 @@ class Cionet extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
+	 *
 	 */
 	
 	public function index()
 	{
-		$this->load->view('cionet');
+		
+		$data['title']='Cionet';
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/topmenu', $data);
+		$this->load->view('cionet', $data);
+		$this->load->view('templates/footer', $data);
 	}
 }
 
