@@ -7,7 +7,13 @@
 
 </div> <!-- id="contenedor"-->
 </center>
-
+<script src="assets/js/_bootstrap.min.js"></script>
+<script src="assets/js/_modernizr.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+     
+    });
+</script>
 <?php 
 
 		switch ($title) {
@@ -20,7 +26,6 @@
 					?>
 					
 					<!-- -->    
-					<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 					    
 
 					<?php
@@ -29,15 +34,13 @@
 					?>
 					
 					<!-- -->  
-					<script src="http://code.jquery.com/jquery-latest.min.js"></script>  
-
+					
 					<?php
 				break;
 			case 'Primaria':
 					?>
 					
 					<!-- --> 
-					<script src="http://code.jquery.com/jquery-latest.min.js"></script>   
 					
 					<?php
 				break;
@@ -45,15 +48,68 @@
 					?>
 					
 					<!-- --> 
-					<script src="http://code.jquery.com/jquery-latest.min.js"></script>   
+					
 					
 					<?php
 				break;
 			case 'Contacto':
 					?>
 					
-					<!-- --> 
-					<script src="http://code.jquery.com/jquery-latest.min.js"></script>   
+					
+					<script language="JavaScript">
+					    //Valida Telefono
+					    function validar(e) {
+					        tecla = (document.all) ? e.keyCode : e.which;
+					        if (tecla==8) return true; //Tecla de retroceso (para poder borrar)
+					        patron = /\d/; //Solo acepta números
+					        te = String.fromCharCode(tecla);
+					        return patron.test(te); 
+					    } 
+
+						function valida_envia(correo){
+								
+									//valido el nombre
+									if (document.checkout.nombre.value.length==0){
+										alert("Debes escribir tu Nombre.")
+										document.checkout.nombre.focus()
+										return 0;
+									}
+
+									// revisa apellido
+									if (document.checkout.apellido.value.length==0){
+										alert ( "Debes escribir tu Apellido." );
+										document.checkout.apellido.focus()
+										return 0;
+									}
+									
+									// revisa Empresa
+									if (document.checkout.empresa.value.length==0){
+										alert ( "Debes escribir el nombre de tu Empresa." );
+										document.checkout.empresa.focus()
+										return 0;
+									}
+									
+									//valido el correo electronico
+									if (correo.length==0){
+										alert("Debes escribir tu correo electrónico")
+										document.checkout.email.focus()
+										return 0;}
+										else
+											{		
+												if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(correo)){
+												document.checkout.email.focus();
+												document.checkout.submit();
+												} else {
+												alert("La dirección de correo es incorrecta.");
+												document.checkout.email.focus();
+												return 0;
+												}
+											}
+									
+									//el formulario se envia
+										
+									}	
+					</script>
 					
 					<?php
 				break;
@@ -63,14 +119,5 @@
 		}
 
 	?>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/modernizr.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-     
-    });
-        
-
-</script>
 </body>
 </html>

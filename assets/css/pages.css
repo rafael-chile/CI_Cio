@@ -3,7 +3,7 @@
 	++		GENERAL
 	++++++++++++++++++++++++++++++++
 	*/
-	body {  
+	/*body {  
 			background-repeat:repeat-x;
 			background-color:#001330;
 			margin:0px;
@@ -18,13 +18,49 @@
 
 	#contenedor {width:895px;}
 	
-	#contenido { height:916px; background-color:#FFF; margin:0px; padding:0px;}
+	#contenido { height:916px; background-color:#FFF; margin:0px; padding:0px; margin-top: -6px;}
 	
-	#footer { background-image:url(http://www.colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_15.jpg); }
+	#footer { background-image:url(http://www.colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_15.jpg); }*/
+
+    * {font-family:Verdana, Arial, Helvetica, sans-serif;}
+
+    body        {  background-image:url(http://colegiociodemexico.edu.mx/test_new/img/bg.jpg);
+                    background-repeat:repeat-x;
+                    background-color:#001330;
+                    margin:0px;
+                    padding:0px;
+                    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                    font:14px/1.6 Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
+                    color:#333;
+                    
+                }
+            
+    #contenedor { width:895px; }
+    
+    #contenido              { height:916px; background-color:#FFF; margin:0px; padding:0px; margin-top: -6px;}
+    #contenido.conocenos    { height:483px; }
+    #contenido.kinder       { height:550px; }
+    #contenido.primaria     { height:483px; }
+    #contenido.cionet       { height:483px; }
+    #contenido.contactos    { height:500px; }
+    
+    #footer     { background-image:url(http://colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_15.jpg); width:895px; height:80px; }
+    
+    p           { text-align:justify;}
+    
+    img { border:0px;}
+
+    li a {color:#FFFFFF; text-decoration:none;}
+
+    .active{color:#FF0000; font-size:14px;}
+
+    .mimagen { vertical-align: top; float: left; margin-right:18px; } 
+    
+    
 
 	/*
 	Agregar a los footers fuera de Inter*/
-	#footer .foot {width:895px; heigh:80px;}
+	#footer .foot {width:895px; height:80px;}
 
 	/*
 	++++++++++++++++++++++++++++++++
@@ -48,65 +84,138 @@
 	++		FORMULARIO DE CIONET
 	++++++++++++++++++++++++++++++++
 	*/
-    .contacto{
-        width:240px;
-        border: 1px solid #CED5D7;
-        border-radius: 6px;
-        padding: 45px 45px 20px;
-        margin-top:30px;
-        background-color: white;
-        box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
-        height: 200px;
-    }
+        .form_cionet{
+            width:240px;
+            border: 1px solid #CED5D7;
+            border-radius: 6px;
+            padding: 45px 45px 20px;
+            margin-top:30px;
+            background-color: white;
+            box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+            height: 200px;
+        }
 
-    .contacto label{
-        display: block;
-        margin-left: 20px;
-        #margin-left: 0px;
-        text-align: left;
-        font-weight: bold;
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 105%;
-    }
-    
-    .contacto div{
-        margin-bottom: 15px;
-    }
-    
-    .contacto input[type='text'], .contacto input[type='password']{
-        padding: 7px 6px;
-        width: 200px;
-        border: 1px solid #CED5D7;
-        resize: none;
-        box-shadow:0 0 0 3px #EEF5F7;
-        margin: 5px 0;
-        height: 30px;
-    }
+        .form_cionet label{
+            display: block;
+            margin-left: 20px;
+            #margin-left: 0px;
+            text-align: left;
+            font-weight: bold;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 105%;
+        }
+        
+        .form_cionet div{
+            margin-bottom: 15px;
+        }
+        
+        .form_cionet input[type='text'], .form_cionet input[type='password']{
+            padding: 7px 6px;
+            width: 200px;
+            border: 1px solid #CED5D7;
+            resize: none;
+            box-shadow:0 0 0 3px #EEF5F7;
+            margin: 5px 0;
+            /*height: 30px;*/
+        }
 
-    .contacto input[type='text']:focus, input[type='password']:focus{
-        outline: none;
-        box-shadow:0 0 0 2px lightblue;
-    }
+        .form_cionet input[type='text']:focus, input[type='password']:focus{
+            outline: none;
+            box-shadow:0 0 0 2px lightblue;
+        }
 
-    .contacto input[type='submit']{
-        border: 1px solid #CED5D7;
-        box-shadow:0 0 0 3px #EEF5F7;
-        float: right;
-        margin-right: 20px;
-        padding: 8px 16px;
-        font-weight: bold;
-        text-shadow: 1px 1px 0px white;
-        background: #e4f1f6;
-        background: -moz-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
-        background: -webkit-linear-gradient(top, #e4f1f6 0%,#cfe6ef 100%);
-    }
-    .contacto input[type='submit']:hover{
-        background: #edfcff;
-        background: -moz-linear-gradient(top, #edfcff 0%, #cfe6ef 100%);
-        background: -webkit-linear-gradient(top, #edfcff 0%,#cfe6ef 100%);
-    }
-    .contacto input[type='submit']:active{
-        background: #cfe6ef;
-        background: -moz-linear-gradient(top, #cfe6ef 0%, #edfcff 100%);
-        background: -webkit-linear-gradient(top, #cfe6ef 0%,#edfcff 100%);
-    }
+        .form_cionet input[type='submit']{
+            border: 1px solid #CED5D7;
+            box-shadow:0 0 0 3px #EEF5F7;
+            float: right;
+            /*margin-right: 20px;*/
+            margin-right: 12px;
+            padding: 8px 16px;
+            font-weight: bold;
+            text-shadow: 1px 1px 0px white;
+            background: #e4f1f6;
+            background: -moz-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
+            background: -webkit-linear-gradient(top, #e4f1f6 0%,#cfe6ef 100%);
+        }
+        .form_cionet input[type='submit']:hover{
+            background: #edfcff;
+            background: -moz-linear-gradient(top, #edfcff 0%, #cfe6ef 100%);
+            background: -webkit-linear-gradient(top, #edfcff 0%,#cfe6ef 100%);
+        }
+        .form_cionet input[type='submit']:active{
+            background: #cfe6ef;
+            background: -moz-linear-gradient(top, #cfe6ef 0%, #edfcff 100%);
+            background: -webkit-linear-gradient(top, #cfe6ef 0%,#edfcff 100%);
+        }
+
+
+    /*
+    ++++++++++++++++++++++++++++++++
+    ++      FORMULARIO DE CONTACTO
+    ++++++++++++++++++++++++++++++++
+    */
+        
+        .contacto{
+            width:500px;
+            border: 1px solid #CED5D7;
+            border-radius: 6px;
+            /*padding: 45px 45px 20px;*/
+            padding: 45px 45px 20px 20px;
+            margin-top:30px;
+            background-color: white;
+            box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+            height: 270px;
+        }
+
+        .contacto label{
+            display: block;
+            margin-left: 60px;
+            #margin-left: 0px;
+            text-align: left;
+            font-weight: bold;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 105%;
+            float: left;
+        }
+        
+        .contacto input[type='text'], .contacto input[type='password']{
+            padding: 7px 6px;
+            width: 200px;
+            border: 1px solid #CED5D7;
+            resize: none;
+            box-shadow:0 0 0 3px #EEF5F7;
+            margin: 5px 25px;
+            height: 15px;
+            float: right;
+
+        }
+
+        .contacto input[type='text']:focus, input[type='password']:focus{
+            outline: none;
+            box-shadow:0 0 0 2px lightblue;
+        }
+
+        .contacto input[type='submit']{
+            border: 1px solid #CED5D7;
+            box-shadow:0 0 0 3px #EEF5F7;
+            float: right;
+            margin: 10px 25px;
+            padding: 8px 16px;
+            font-weight: bold;
+            text-shadow: 1px 1px 0px white;
+            background: #e4f1f6;
+            background: -moz-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
+            background: -webkit-linear-gradient(top, #e4f1f6 0%,#cfe6ef 100%);
+        }
+        .contacto input[type='submit']:hover{
+            background: #edfcff;
+            background: -moz-linear-gradient(top, #edfcff 0%, #cfe6ef 100%);
+            background: -webkit-linear-gradient(top, #edfcff 0%,#cfe6ef 100%);
+        }
+        .contacto input[type='submit']:active{
+            background: #cfe6ef;
+            background: -moz-linear-gradient(top, #cfe6ef 0%, #edfcff 100%);
+            background: -webkit-linear-gradient(top, #cfe6ef 0%,#edfcff 100%);
+        }
+
+        .clearboth  {clear:both;}
