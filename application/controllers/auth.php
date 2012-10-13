@@ -33,7 +33,8 @@ class Auth extends CI_Controller {
 			//redirect them to the home page because they must be an administrator to view this
 			//redirect('/', 'refresh');
 			//AF: Sent to inter.php and read the group in "Inter" controller and depends on that, print sections.
-			echo 'Hi';
+			redirect('inter', 'refresh');
+
 		}
 		else
 		{

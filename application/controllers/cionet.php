@@ -11,6 +11,7 @@ class Cionet extends CI_Controller {
 	{
 		
 		$data['title']='Cionet';
+		$data['message']='';
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topmenu', $data);
