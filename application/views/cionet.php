@@ -4,7 +4,8 @@
 
                 <div id="infoMessage"><?php echo $message;?></div>
 
-                <form class="form_cionet" name="formulario" action="auth/login" method="post">
+                <!--<form class="form_cionet" name="formulario" action="auth/login" method="post">-->
+                <form class="form_cionet" name="formulario" action="inter/login" method="post">
                     <div><label for="identity">Usuario/Email:</label>
                         <input name='identity' type='text' value=''></div>
                     <div><label for="password">Contrase&ntilde;a:</label>
