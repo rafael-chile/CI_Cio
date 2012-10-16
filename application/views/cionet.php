@@ -14,6 +14,6 @@
                         <input type="submit" name="subm" value="Entrar">
                 </form>
 
-                <p><a href="auth/forgot_password">&iquest;Olvidó su contrase&ntilde;a?</a></p>
+                <p><a href="inter/forgot_password">&iquest;Olvidó su contrase&ntilde;a?</a></p>
                 
         </div>

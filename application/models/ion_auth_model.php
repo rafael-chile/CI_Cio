@@ -1910,7 +1910,8 @@ class Ion_auth_model extends CI_Model
 		}
 		else
 		{
-			return inet_pton($ip_address);
+			//return inet_pton($ip_address);
+			return $ip_address;
 		}
 	}
 }

@@ -1,22 +1,22 @@
-<h1>Change Password</h1>
+<h1>Actualizar Contrase&ntilde;a</h1>
 
 <div id="infoMessage"><?php echo $message;?></div>
 
-<?php echo form_open("auth/change_password");?>
+<?php echo form_open("inter/change_password");?>
 
-      <p>Old Password:<br />
+      <p>Contrase&ntilde;a anterior:<br />
       <?php echo form_input($old_password);?>
       </p>
       
-      <p>New Password (at least <?php echo $min_password_length;?> characters long):<br />
+      <p>Nueva Contrase&ntilde;a (por lo menos <?php echo $min_password_length;?> caracteres):<br />
       <?php echo form_input($new_password);?>
       </p>
       
-      <p>Confirm New Password:<br />
+      <p>Confirmar nueva Contrase&ntilde;a: <br />
       <?php echo form_input($new_password_confirm);?>
       </p>
       
       <?php echo form_input($user_id);?>
-      <p><?php echo form_submit('submit', 'Change');?></p>
+      <p><?php echo form_submit('submit', 'Cambiar');?></p>
       
 <?php echo form_close();?>

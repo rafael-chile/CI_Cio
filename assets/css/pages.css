@@ -43,6 +43,8 @@
     #contenido.primaria     { height:483px; }
     #contenido.cionet       { height:483px; }
     #contenido.contactos    { height:500px; }
+
+    #centro                 {padding:25px 15px 15px 35px;}
     
     #footer     { background-image:url(http://colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_15.jpg); width:895px; height:80px; }
     

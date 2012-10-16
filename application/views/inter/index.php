@@ -1,15 +1,15 @@
-<h1>Users</h1>
-<p>Below is a list of the users.</p>
+<h1>Usuarios</h1>
+<p>Lista de todos los usuarios.</p>
 
 <div id="infoMessage"><?php echo $message;?></div>
 
 <table cellpadding=0 cellspacing=10>
 	<tr>
-		<th>First Name</th>
-		<th>Last Name</th>
-		<th>Email</th>
-		<th>Groups</th>
-		<th>Status</th>
+		<th>Nombre</th>
+		<th>Apellido</th>
+		<th>Correo</th>
+		<th>Grupos</th>
+		<th>Estado del usuario</th>
 	</tr>
 	<?php foreach ($users as $user):?>
 		<tr>
@@ -21,9 +21,9 @@
 					<?php echo $group->name;?><br />
                 <?php endforeach?>
 			</td>
-			<td><?php echo ($user->active) ? anchor("auth/deactivate/".$user->id, 'Active') : anchor("auth/activate/". $user->id, 'Inactive');?></td>
+			<td><?php echo ($user->active) ? anchor("inter/deactivate/".$user->id, 'Activo') : anchor("inter/activate/". $user->id, 'Inactivo');?></td>
 		</tr>
 	<?php endforeach;?>
 </table>
 
-<p><a href="<?php echo site_url('auth/create_user');?>">Create a new user</a></p>
+<p><a href="<?php echo site_url('inter/create_user');?>">Crear nuevo usuario.</a></p>
