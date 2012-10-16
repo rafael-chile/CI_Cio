@@ -1,7 +1,6 @@
-<div id="contenido" class="kinder" style="text-align:justify">        
+    <div id="contenido" class="kinder" style="text-align:justify">        
         	  <div id="cuad_blanc" style="height:483px; width:895px; float:none" >            
                 <div id="cuad_blanc1" style="float:left; width:185px !important; height:443px; padding:20px;">                  
-
                     <div id="wrapper">
                         <div id="vnav">
                             <ul>

@@ -1,46 +1,45 @@
-<h1>Create User</h1>
-<p>Please enter the users information below.</p>
+<h1>Crear nuevo usuario</h1>
 
 <div id="infoMessage"><?php echo $message;?></div>
 
-<?php echo form_open("auth/create_user");?>
+<?php echo form_open("inter/create_user");?>
 
       <p>
-            First Name: <br />
+            Nombre: <br />
             <?php echo form_input($first_name);?>
       </p>
 
       <p>
-            Last Name: <br />
+            Apellido: <br />
             <?php echo form_input($last_name);?>
       </p>
 
       <p>
-            Company Name: <br />
+            Trabajo: <br />
             <?php echo form_input($company);?>
       </p>
 
       <p>
-            Email: <br />
+            Correo Electr&oacute;nico: <br />
             <?php echo form_input($email);?>
       </p>
 
       <p>
-            Phone: <br />
+            Tel&eacute;fono: <br />
             <?php echo form_input($phone1);?>-<?php echo form_input($phone2);?>-<?php echo form_input($phone3);?>
       </p>
 
       <p>
-            Password: <br />
+            Contrase&ntilde;a: <br />
             <?php echo form_input($password);?>
       </p>
 
       <p>
-            Confirm Password: <br />
+            Confirmar contrase&ntilde;a: <br />
             <?php echo form_input($password_confirm);?>
       </p>
 
 
-      <p><?php echo form_submit('submit', 'Create User');?></p>
+      <p><?php echo form_submit('submit', 'Crear usuario');?></p>
 
 <?php echo form_close();?>
