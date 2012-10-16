@@ -31,6 +31,7 @@
 	<?php endforeach;?>
 </table>
 
+<p><a href="<?php echo site_url('inter/create_user');?>">Create a new user</a></p>
 
 </body>
 </html>
