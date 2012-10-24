@@ -41,7 +41,7 @@
     #contenido.conocenos    { height:483px; }
     #contenido.kinder       { height:550px; }
     #contenido.primaria     { height:483px; }
-    #contenido.cionet       { height:483px; }
+    #contenido.cionet       { height:483px;}
     #contenido.contactos    { height:500px; }
 
     #centro                 {padding:25px 15px 15px 35px;}
@@ -150,6 +150,19 @@
             background: -webkit-linear-gradient(top, #cfe6ef 0%,#edfcff 100%);
         }
 
+        a.forgot_link {
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 12px;
+            padding: 10px 0px 0px 92px;
+            display: block;
+            text-decoration: none;
+            color:black;
+            width: 240px;
+        }
+
+        a.forgot_link:hover {
+            text-decoration: underline;
+        }
 
     /*
     ++++++++++++++++++++++++++++++++
@@ -221,3 +234,13 @@
         }
 
         .clearboth  {clear:both;}
+
+    /*
+    ++++++++++++++++++++++++++++++++
+    ++      ADMIN PAGE
+    ++++++++++++++++++++++++++++++++
+    */
+
+    #contenedor_admin { width:100%;}
+
+    #contenido.admin  { height:100%;}
