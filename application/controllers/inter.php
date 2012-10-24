@@ -456,6 +456,12 @@ class Inter extends CI_Controller {
 	//deactivate the user
 	function deactivate($id = NULL)
 	{
+		
+		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
+		{
+			redirect('inter', 'refresh');
+		}
+
 		$id = $this->config->item('use_mongodb', 'ion_auth') ? (string) $id : (int) $id;
 
 		$this->load->library('form_validation');
