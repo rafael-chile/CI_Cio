@@ -34,6 +34,14 @@
                     color:#333;
                     
                 }
+
+    body.admin_adduser {   
+                background-image:url();
+                background-color:white;
+                padding:15px;
+                overflow: hidden;
+                
+                }
             
     #contenedor { width:895px; }
     
@@ -241,6 +249,79 @@
     ++++++++++++++++++++++++++++++++
     */
 
-    #contenedor_admin { width:100%;}
+    #contenedor_admin         { }
 
-    #contenido.admin  { height:100%;}
+    #contenido.admin_adduser  { }
+
+
+    /*
+    ++++++++++++++++++++++++++++++++
+    ++      FORMULARIO DE CONTACTO
+    ++++++++++++++++++++++++++++++++
+    */
+        
+        .form_admin{
+
+            width:500px;
+            border: 1px solid #CED5D7;
+            border-radius: 6px;
+            /*padding: 45px 45px 20px;*/
+            padding: 45px 45px 20px 20px;
+            margin-top:30px;
+            background-color: white;
+            box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+            height: 350px;
+        }
+
+        .form_admin label{
+            display: block;
+            margin-left: 60px;
+            #margin-left: 0px;
+            text-align: left;
+            font-weight: bold;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 105%;
+            float: left;
+        }
+        
+        .form_admin input[type='text'], .form_admin input[type='password']{
+            padding: 7px 6px;
+            width: 200px;
+            border: 1px solid #CED5D7;
+            resize: none;
+            box-shadow:0 0 0 3px #EEF5F7;
+            margin: 5px 25px;
+            height: 15px;
+            float: right;
+
+        }
+
+        .form_admin input[type='text']:focus, input[type='password']:focus{
+            outline: none;
+            box-shadow:0 0 0 2px lightblue;
+        }
+
+        .form_admin input[type='submit']{
+            border: 1px solid #CED5D7;
+            box-shadow:0 0 0 3px #EEF5F7;
+            float: right;
+            margin: 10px 25px;
+            padding: 8px 16px;
+            font-weight: bold;
+            text-shadow: 1px 1px 0px white;
+            background: #e4f1f6;
+            background: -moz-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
+            background: -webkit-linear-gradient(top, #e4f1f6 0%,#cfe6ef 100%);
+        }
+        .form_admin input[type='submit']:hover{
+            background: #edfcff;
+            background: -moz-linear-gradient(top, #edfcff 0%, #cfe6ef 100%);
+            background: -webkit-linear-gradient(top, #edfcff 0%,#cfe6ef 100%);
+        }
+        .form_admin input[type='submit']:active{
+            background: #cfe6ef;
+            background: -moz-linear-gradient(top, #cfe6ef 0%, #edfcff 100%);
+            background: -webkit-linear-gradient(top, #cfe6ef 0%,#edfcff 100%);
+        }
+
+        .clearboth  {clear:both;}

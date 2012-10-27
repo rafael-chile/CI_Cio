@@ -13,6 +13,32 @@
 
 	<link type="text/css" rel="stylesheet" href="../assets/css/pages.css">
 	
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="../assets/specific/source_fancy/jquery-1.8.2.min.js"></script>
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="../assets/specific/source_fancy/jquery.fancybox.js?v=2.1.1"></script>
+	<link rel="stylesheet" type="text/css" href="../assets/specific/source_fancy/jquery.fancybox.css?v=2.1.1" media="screen" />
+	<!-- Add Media helper (this is optional) -->
+	<script type="text/javascript" src="../assets/specific/source_fancy/helpers/jquery.fancybox-media.js?v=1.0.4"></script>
+
+	<script type="text/javascript">
+			$(document).ready(function() {
+			
+				$('.fancybox').fancybox();
+
+				$("#fancybox-manual-inline").click(function() {
+								$.fancybox.open({
+									//href : '/cio/primaria',
+									href : 'create_user',
+									type : 'iframe',
+									width: 610,
+									'scrolling' : 'no'
+								});
+				});
+
+
+			});
+		</script>
 
 </head>
 <body>
@@ -66,8 +92,7 @@
 			    			<?php endforeach;?>
 			    		</table>
 
-
-			    		<p style="padding-left:10px;"><a href="<?php echo site_url('inter/create_user');?>">Crear usuario</a></p>
+						<p style="padding-left:10px;"><a id="fancybox-manual-inline" href="javascript:;">Crear Nuevo Usuario</a></p>
 	    		
 			    	</div>	<!-- span4 usuarios-->
 
@@ -158,9 +183,6 @@
 			    			<?php endforeach;?>
 			    		</table>
 
-
-			    		<p style="padding-left:10px;"><a href="<?php echo site_url('inter/create_user');?>">Crear usuario</a></p>
-	    		
 			    	</div>	<!-- span4 usuarios-->
 
 			    	<div class="span4">

@@ -12,10 +12,11 @@ class Primaria extends CI_Controller {
 		
 		$data['title']='Primaria';
 
-		$this->load->view('templates/header', $data);
+		/*$this->load->view('templates/header', $data);
 		$this->load->view('templates/topmenu', $data);
 		$this->load->view('primaria', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/footer', $data);*/
+		$this->load->view('test_fancy', $data);
 	}
 }
 

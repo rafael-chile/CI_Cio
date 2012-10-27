@@ -510,15 +510,15 @@ class Inter extends CI_Controller {
 		}
 
 		//validate form input
-		$this->form_validation->set_rules('first_name', 'First Name', 'required|xss_clean');
-		$this->form_validation->set_rules('last_name', 'Last Name', 'required|xss_clean');
-		$this->form_validation->set_rules('email', 'Email Address', 'required|valid_email');
-		$this->form_validation->set_rules('phone1', 'First Part of Phone', 'required|xss_clean|min_length[3]|max_length[3]');
-		$this->form_validation->set_rules('phone2', 'Second Part of Phone', 'required|xss_clean|min_length[3]|max_length[3]');
-		$this->form_validation->set_rules('phone3', 'Third Part of Phone', 'required|xss_clean|min_length[4]|max_length[4]');
-		$this->form_validation->set_rules('company', 'Company Name', 'required|xss_clean');
-		$this->form_validation->set_rules('password', 'Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
-		$this->form_validation->set_rules('password_confirm', 'Password Confirmation', 'required');
+		$this->form_validation->set_rules('first_name', 'Nombre', 'required|xss_clean');
+		$this->form_validation->set_rules('last_name', 'Apellido', 'required|xss_clean');
+		$this->form_validation->set_rules('email', 'Correo electrónico', 'required|valid_email');
+		$this->form_validation->set_rules('phone1', 'Teléfono', 'required|xss_clean|min_length[5]|max_length[12]');
+		/*$this->form_validation->set_rules('phone2', 'Second Part of Phone', 'required|xss_clean|min_length[3]|max_length[3]');
+		$this->form_validation->set_rules('phone3', 'Third Part of Phone', 'required|xss_clean|min_length[4]|max_length[4]');*/
+		$this->form_validation->set_rules('company', 'Trabajo', 'required|xss_clean');
+		$this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
+		$this->form_validation->set_rules('password_confirm', 'Confirmar contraseña', 'required');
 
 		if ($this->form_validation->run() == true)
 		{
@@ -530,7 +530,7 @@ class Inter extends CI_Controller {
 				'first_name' => $this->input->post('first_name'),
 				'last_name'  => $this->input->post('last_name'),
 				'company'    => $this->input->post('company'),
-				'phone'      => $this->input->post('phone1') . '-' . $this->input->post('phone2') . '-' . $this->input->post('phone3'),
+				'phone'      => $this->input->post('phone1'),
 			);
 		}
 		if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data))
@@ -538,7 +538,9 @@ class Inter extends CI_Controller {
 			//check to see if we are creating the user
 			//redirect them back to the admin page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("inter", 'refresh');
+			//redirect("inter", 'refresh');			
+			$data['newuser']=$username;
+			$this->load->view('templates/newuseradded',$data);
 		}
 		else
 		{ 
@@ -576,7 +578,7 @@ class Inter extends CI_Controller {
 				'type'  => 'text',
 				'value' => $this->form_validation->set_value('phone1'),
 			);
-			$this->data['phone2'] = array(
+			/*$this->data['phone2'] = array(
 				'name'  => 'phone2',
 				'id'    => 'phone2',
 				'type'  => 'text',
@@ -587,7 +589,7 @@ class Inter extends CI_Controller {
 				'id'    => 'phone3',
 				'type'  => 'text',
 				'value' => $this->form_validation->set_value('phone3'),
-			);
+			);*/
 			$this->data['password'] = array(
 				'name'  => 'password',
 				'id'    => 'password',
