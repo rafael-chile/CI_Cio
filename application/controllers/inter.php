@@ -145,7 +145,7 @@ class Inter extends CI_Controller {
 
 		//redirect them to the login page
 		$this->session->set_flashdata('message', $this->ion_auth->messages());
-		redirect('inter/login', 'refresh');
+		redirect('cionet', 'refresh');
 	}
 
 	//*****************************************
@@ -513,6 +513,7 @@ class Inter extends CI_Controller {
 		$this->form_validation->set_rules('first_name', 'Nombre', 'required|xss_clean');
 		$this->form_validation->set_rules('last_name', 'Apellido', 'required|xss_clean');
 		$this->form_validation->set_rules('email', 'Correo electrónico', 'required|valid_email');
+		$this->form_validation->set_rules('grupo', 'Grupo', 'required|xss_clean');
 		$this->form_validation->set_rules('phone1', 'Teléfono', 'required|xss_clean|min_length[5]|max_length[12]');
 		/*$this->form_validation->set_rules('phone2', 'Second Part of Phone', 'required|xss_clean|min_length[3]|max_length[3]');
 		$this->form_validation->set_rules('phone3', 'Third Part of Phone', 'required|xss_clean|min_length[4]|max_length[4]');*/
@@ -525,6 +526,8 @@ class Inter extends CI_Controller {
 			$username = strtolower($this->input->post('first_name')) . ' ' . strtolower($this->input->post('last_name'));
 			$email    = $this->input->post('email');
 			$password = $this->input->post('password');
+			//$grupo    = $this->input->post('grupo');
+			$grupo = array($this->input->post('grupo'));
 
 			$additional_data = array(
 				'first_name' => $this->input->post('first_name'),
@@ -533,7 +536,7 @@ class Inter extends CI_Controller {
 				'phone'      => $this->input->post('phone1'),
 			);
 		}
-		if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data))
+		if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data, $grupo))
 		{ 
 			//check to see if we are creating the user
 			//redirect them back to the admin page
@@ -566,6 +569,14 @@ class Inter extends CI_Controller {
 				'type'  => 'text',
 				'value' => $this->form_validation->set_value('email'),
 			);
+
+			$this->data['grupo'] = array(
+				'name'  => 'grupo',
+				'id'    => 'grupo',
+				'type'  => 'text',
+				'value' => $this->form_validation->set_value('grupo'),
+			);
+
 			$this->data['company'] = array(
 				'name'  => 'company',
 				'id'    => 'company',

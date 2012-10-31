@@ -31,7 +31,13 @@
                           <div><label>Confirmar contrase&ntilde;a: </label><?php //echo form_input($password_confirm);?><div class="clearboth"></div>
                           <input type="submit" name="submit" value="Crear Usuario">
                       </form>-->
+                      
       <?php 
+
+            $options = array(
+                              '1'  => 'Administrador',
+                              '4'    => 'Padres',
+                            );
 
             $attributes = array('class' => 'form_admin');
             echo form_open("inter/create_user",$attributes);
@@ -44,6 +50,8 @@
             <div><label>Trabajo:</label><?php echo form_input($company);?></div><div class="clearboth"></div>
 
             <div><label>Correo Electr&oacute;nico:</label><?php echo form_input($email);?></div><div class="clearboth"></div>
+            
+            <div><label>Grupo: </label><?php echo form_dropdown('grupo', $options, '4');?></div><div class="clearboth"></div>
 
             <div><label>Tel&eacute;fono:</label><?php echo form_input($phone1);?></div><div class="clearboth"></div>
 
