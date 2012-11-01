@@ -103,7 +103,8 @@ class Inter extends CI_Controller {
 					//if the login was un-successful
 					//redirect them back to the login page
 					$this->session->set_flashdata('message', $this->ion_auth->errors());
-					redirect('inter/login', 'refresh'); //use redirects instead of loading views for compatibility with MY_Controller libraries
+					redirect('cionet', 'refresh'); //use redirects instead of loading views for compatibility with MY_Controller libraries
+					
 				}
 			}
 			else
@@ -126,6 +127,10 @@ class Inter extends CI_Controller {
 				$this->data['title']='Cionet';
 				
 				$this->load->view('inter/login', $this->data);
+				//$this->load->view('cionet', $this->data);
+				
+								
+				//$this->load->view('cionet', $this->data);
 				/*$this->load->view('templates/header', $this->data);
 				$this->load->view('templates/topmenu', $this->data);
 				$this->load->view('cionet', $this->data);
@@ -305,7 +310,7 @@ class Inter extends CI_Controller {
 	//forgot password
 	function forgot_password()
 	{
-		$this->form_validation->set_rules('email', 'Email Address', 'required');
+		$this->form_validation->set_rules('email', 'Correo Electrónico', 'required');
 		if ($this->form_validation->run() == false)
 		{
 			//setup the input
