@@ -26,10 +26,20 @@
 			
 				$('.fancybox').fancybox();
 
-				$("#fancybox-manual-inline").click(function() {
+				$("#add-new-user").click(function() {
 								$.fancybox.open({
 									//href : '/cio/primaria',
-									href : 'create_user',
+									href : '../inter/create_user',
+									type : 'iframe',
+									width: 610,
+									'scrolling' : 'no'
+								});
+				});
+
+				$("#add-new-alumno").click(function() {
+								$.fancybox.open({
+									//href : '/cio/primaria',
+									href : '../alumnos/crear_alumno',
 									type : 'iframe',
 									width: 610,
 									'scrolling' : 'no'
@@ -60,14 +70,19 @@
     	<div id="contenido" class="admin" style="text-align:justify">     
 
     		<div id="centro">
-    			Hola <?=$nombre; ?> , usted es Admin.
+    			Hola <b><?=$nombre; ?></b>.
     			<br/><br/>
 
 	    		<div id="infoMessage"><?php echo $message;?></div>
 
 	    		<div class="row-fluid">
 			    	
-			    	<div class="span4">
+			    	<div class="span6">
+			    		
+			    		<h3>Usuarios</h3>
+
+			    		<p style="padding-left:10px;"><a id="add-new-user" href="javascript:;">Crear Nuevo Usuario</a></p>
+
 			    		<table class="table table-bordered">
 			    			<tr>
 			    				<th>Nombre</th>
@@ -80,8 +95,7 @@
 			    				<tr>
 			    					<td><?php echo $user->first_name;?></td>
 			    					<td><?php echo $user->last_name;?></td>
-			    					<!--<td><?php //echo $user->email;?></td>-->
-			    					<td>Mail</td>
+			    					<td><?php echo $user->email;?></td>
 			    					<td>
 			    						<?php foreach ($user->groups as $group):?>
 			    							<?php echo $group->name;?><br />
@@ -92,11 +106,14 @@
 			    			<?php endforeach;?>
 			    		</table>
 
-						<p style="padding-left:10px;"><a id="fancybox-manual-inline" href="javascript:;">Crear Nuevo Usuario</a></p>
+						
 	    		
 			    	</div>	<!-- span4 usuarios-->
-
+			    	<!--
 			    	<div class="span4">
+			    		<p style="padding-left:10px;">&nbsp;</p>
+			    		<p style="padding-left:10px;">&nbsp;</p>
+			    		<p style="padding-left:10px;">&nbsp;</p>
 			    		<table class="table table-bordered">
 			    			<tr>
 			    				<th>Materia</th>
@@ -122,103 +139,60 @@
 			    				</tr>
 			    		</table>
 	    		
-			    	</div>	<!-- span4 calificaciones-->
-
-			    	<div class="span3">
-			    		<table class="table table-bordered">
-			    			<tr>
-			    				<th>Materia</th>
-			    				<th>1er Parcial</th>
-			    				<th>2da Parcial</th>
-			    				<th>3er Parcial</th>
-			    				<th>4ta Parcial</th>
-			    			</tr>
-			    				<tr>
-			    					<td>Espa&ntilde;ol</td>
-			    					<td>10</td>
-			    					<td>9</td>
-			    					<td>8</td>
-			    					<td>8</td>
-			    				</tr>
-
-			    				<tr>
-			    					<td>Matem&aacute;ticas</td>
-			    					<td>10</td>
-			    					<td>9</td>
-			    					<td>8</td>
-			    					<td>8</td>
-			    				</tr>
-			    		</table>
-	    		
-			    	</div>	<!-- span4 calificaciones-->
-
+			    	</div>-->  <!-- span4 calificaciones-->
 
 				</div>	<!-- Row-->
 
 
-				<p style="font-weight:bold; margin-top:10px;">Tareas</p>
 				<div class="row-fluid">
 			    	
-			    	<div class="span4">
-			    		<table class="table table-bordered" cellpadding=0 cellspacing=10>
+			    	<div class="span10">
+			    		
+			    		<h3>Alumnos</h3>
+
+			    		<p style="padding-left:10px;"><a id="add-new-alumno" href="javascript:;">Crear Nuevo Alumno</a></p>
+
+			    		<table class="table table-bordered">
 			    			<tr>
 			    				<th>Nombre</th>
-			    				<th>Apellido</th>
-			    				<th>Correo</th>
-			    				<th>Grupos</th>
-			    				<th>Estado del usuario</th>
+			    				<th>Apellido Paterno</th>
+			    				<th>Apellido Materno</th>
+			    				<th>CURP</th>
+			    				<th>Fecha Nacimiento</th>
+			    				<th>Fecha Ingreso</th>
+			    				<th>Direcci&oacute;n</th>
+			    				<th>Tel&eacute;fono</th>
+			    				<th>Grado</th>
+			    				<th>Grupo</th>
+			    				<th>Editar</th>
+			    				<th>Eliminar</th>
 			    			</tr>
-			    			<?php foreach ($users as $user):?>
+			    			<?php foreach ($alumnos as $alumno):?>
 			    				<tr>
-			    					<td><?php echo $user->first_name;?></td>
-			    					<td><?php echo $user->last_name;?></td>
-			    					<td>Mail</td>
-			    					<td>
-			    						<?php foreach ($user->groups as $group):?>
-			    							<?php echo $group->name;?><br />
-			    		                <?php endforeach?>
-			    					</td>
-			    					<td><?php echo ($user->active) ? anchor("inter/deactivate/".$user->id, 'Activo') : anchor("inter/activate/". $user->id, 'Inactivo');?></td>
+			    					<td><?php echo $alumno->nombre;?></td>
+			    					<td><?php echo $alumno->apellido_pat;?></td>
+			    					<td><?php echo $alumno->apellido_mat;?></td>
+			    					<td><?php echo $alumno->curp;?></td>
+			    					<td><?php echo $alumno->fecha_nac;?></td>			    					
+			    					<td><?php echo $alumno->fecha_ingreso;?></td>			    					
+			    					<td><?php echo $alumno->direccion;?></td>			    					
+			    					<td><?php echo $alumno->telefono;?></td>			    					
+			    					<td><?php echo $alumno->grado;?></td>			    					
+			    					<td><?php echo $alumno->grupo;?></td>			    					
+			    					<td><?php echo anchor("", 'Editar');?></td>
+			    					<td><?php echo anchor("", 'Eliminar');?></td>
 			    				</tr>
 			    			<?php endforeach;?>
 			    		</table>
 
+			    	
+			    	
 			    	</div>	<!-- span4 usuarios-->
-
-			    	<div class="span4">
-			    		<table class="table table-bordered">
-			    			<tr>
-			    				<th>Materia</th>
-			    				<th>1er Parcial</th>
-			    				<th>2da Parcial</th>
-			    				<th>3er Parcial</th>
-			    				<th>4ta Parcial</th>
-			    			</tr>
-			    				<tr>
-			    					<td>Espa&ntilde;ol</td>
-			    					<td>10</td>
-			    					<td>9</td>
-			    					<td>8</td>
-			    					<td>8</td>
-			    				</tr>
-
-			    				<tr>
-			    					<td>Matem&aacute;ticas</td>
-			    					<td>10</td>
-			    					<td>9</td>
-			    					<td>8</td>
-			    					<td>8</td>
-			    				</tr>
-			    		</table>
-	    		
-			    	</div>	<!-- span4 calificaciones-->
 
 				</div>	<!-- Row-->
 
-
 			</div>		
-
-		
+	
 		</div>
 
 

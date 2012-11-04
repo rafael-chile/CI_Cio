@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Colegio CIO de M&eacute;xico ::: <?=$title;?> :::</title>
+	<title>Colegio CIO de M&eacute;xico</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +36,22 @@
 
 </head>
 <body>
-	<p><?php echo "El usuario: " . $newuser . " ha sido agregado correctamente.";?></p>
+	
+<?php 
+
+	switch($action)
+	 {
+	  case 'nuevo_alumno': echo '<p>El alumno ha sido agregado correctamente.</p>';
+	  break;
+	  case 'nuevo_usuario': echo '<p>El usuario ha sido agregado correctamente.</p>';
+	  break;                
+	 }
+
+?>
+
+	
 	<a id="fancybox-manual-close" href="javascript:;">Close</a>
+
+
 </body>
 </html>

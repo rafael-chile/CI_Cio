@@ -36,7 +36,7 @@
 
             $options = array(
                               '1'  => 'Administrador',
-                              '4'    => 'Padres',
+                              '4'    => 'Padre',
                             );
 
             $attributes = array('class' => 'form_admin');
@@ -47,11 +47,11 @@
 
             <div><label>Apellido:</label><?php echo form_input($last_name);?></div><div class="clearboth"></div>
 
-            <div><label>Trabajo:</label><?php echo form_input($company);?></div><div class="clearboth"></div>
+            <div><label>Ocupaci&oacute;n:</label><?php echo form_input($company);?></div><div class="clearboth"></div>
 
             <div><label>Correo Electr&oacute;nico:</label><?php echo form_input($email);?></div><div class="clearboth"></div>
             
-            <div><label>Grupo: </label><?php echo form_dropdown('grupo', $options, '4');?></div><div class="clearboth"></div>
+            <div><label>Tipo de Cuenta: </label><?php echo form_dropdown('grupo', $options, '4');?></div><div class="clearboth"></div>
 
             <div><label>Tel&eacute;fono:</label><?php echo form_input($phone1);?></div><div class="clearboth"></div>
 

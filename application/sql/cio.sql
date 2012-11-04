@@ -135,3 +135,70 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alumnos`
+--
+
+--CREATE TABLE IF NOT EXISTS `alumnosasd` (
+--  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+--  `nombre` varchar(60) COLLATE utf8_bin NOT NULL,
+--  `apellido_pat` varchar(60) COLLATE utf8_bin NULL,
+--  `apellido_mat` varchar(60) COLLATE utf8_bin NULL,
+--  `curp` varchar(40) COLLATE utf8_bin DEFAULT NULL,
+--  `fecha_nac` date NOT NULL,
+--  `fecha_ingreso` date COLLATE utf8_bin DEFAULT NULL,
+--  `direccion` varchar(100) COLLATE utf8_bin DEFAULT NOT NULL,
+--  `telefono` varchar(20) COLLATE utf8_bin DEFAULT NOT NULL,
+--  `grado` varchar(11) COLLATE utf8_bin DEFAULT NOT NULL,
+--  `grupo` varchar(11) COLLATE utf8_bin DEFAULT NOT NULL,
+--  PRIMARY KEY (`id`)
+--) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5;
+
+
+CREATE TABLE  `alumnos` (
+ `id` MEDIUMINT( 8 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+ `nombre` VARCHAR( 60 ) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL ,
+ `apellido_pat` VARCHAR( 60 ) CHARACTER SET utf8 COLLATE utf8_bin NULL ,
+ `apellido_mat` VARCHAR( 60 ) CHARACTER SET utf8 COLLATE utf8_bin NULL ,
+ `curp` VARCHAR( 40 ) CHARACTER SET utf8 COLLATE utf8_bin NULL ,
+ `fecha_nac` DATE NOT NULL ,
+ `fecha_ingreso` DATE NULL ,
+ `direccion` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL ,
+ `telefono` VARCHAR( 20 ) CHARACTER SET utf8 COLLATE utf8_bin NULL ,
+ `grado` VARCHAR( 11 ) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL ,
+ `grupo` VARCHAR( 11 ) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
+) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_bin;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `alumnos` 
+(`id`, `nombre`, `apellido_pat`, `apellido_mat`, `curp`, `fecha_nac`, `fecha_ingreso`, `direccion`, `telefono`, `grado`, `grupo`) VALUES
+(1, 'alumno1', 'apellido_pat1', 'apellido_mat1', 'curp1', CURDATE(), CURDATE(), 'direccion1', 'telefono1', 'grado1', 'grupo1'),
+(2, 'alumno2', 'apellido_pat2', 'apellido_mat2', 'curp2', CURDATE(), CURDATE(), 'direccion2', 'telefono2', 'grado2', 'grupo2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alumnos_users`
+--
+
+CREATE TABLE IF NOT EXISTS `alumnos_users` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `alumno_id` mediumint(8) unsigned NOT NULL,
+  `user_id` mediumint(8) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5;
+
+--
+-- Dumping data for table `users_groups`
+--
+
+INSERT INTO `users_groups` (`id`, `alumno_id`, `user_id`) VALUES
+(1, 1, 5),
+(2, 1, 5),
+(3, 2, 2);

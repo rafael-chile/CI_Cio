@@ -21,10 +21,14 @@ class Inter extends CI_Controller {
 
 		$this->load->database();
 
+		//New model
+		$this->load->model('inter_model');
+
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 	}
 
 	//redirect if needed, otherwise display the user list
+	
 	public function index()
 	{
 		
@@ -52,7 +56,7 @@ class Inter extends CI_Controller {
 			}
 
 		}
-		else
+		elseif($this->ion_auth->is_admin())
 		{
 			/*
 			//set the flash data error message if there is one
@@ -201,15 +205,6 @@ class Inter extends CI_Controller {
 		}elseif ($this->ion_auth->is_admin()){
 
 
-			/*
-			//echo "Logueado as Admin";
-			$data['nombre'] = 'Administrador';
-			//Mostrar página del alumno.
-			//print_r($this->ion_auth->user()->row());
-			//$this->load->view('alumno',$data);
-			$this->load->view('inter/admin',$data);
-			*/
-
 			$this->data['nombre'] = 'Administrador';
 
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
@@ -222,6 +217,9 @@ class Inter extends CI_Controller {
 			}
 
 
+			//Enlistar todos los alumnos
+			$this->data['alumnos'] = $this->inter_model->get_all();
+			
 			$this->load->view('inter/admin', $this->data);
 
 
@@ -547,8 +545,8 @@ class Inter extends CI_Controller {
 			//redirect them back to the admin page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
 			//redirect("inter", 'refresh');			
-			$data['newuser']=$username;
-			$this->load->view('templates/newuseradded',$data);
+			$data['action']='nuevo_usuario';
+			$this->load->view('templates/messages',$data);
 		}
 		else
 		{ 
@@ -623,6 +621,7 @@ class Inter extends CI_Controller {
 		}
 	}
 
+	
 	//edit a user
 	function edit_user($id)
 	{
@@ -844,5 +843,5 @@ class Inter extends CI_Controller {
 
 }
 
-/* End of file cionet.php */
-/* Location: ./application/controllers/cionet.php */
+/* End of file inter.php */
+/* Location: ./application/controllers/inter.php */
