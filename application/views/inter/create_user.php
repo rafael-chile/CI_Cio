@@ -17,7 +17,7 @@
 </head>
 <body class="admin_adduser">
 
-                  <h1>Crear nuevo usuario</h1>
+                  <h3>Crear nuevo usuario</h3>
 
                   <div id="infoMessage"><?php echo $message;?></div>
 

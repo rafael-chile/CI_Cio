@@ -8,16 +8,16 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
       
-      <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css">
-      <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap-responsive.min.css">
+      <link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.min.css';?>">
+      <link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap-responsive.min.css';?>">
 
-      <link type="text/css" rel="stylesheet" href="../assets/css/pages.css">
+      <link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/pages.css';?>">
 
 
 </head>
 <body class="admin_adduser">
 
-                  <h1>Agregar un nuevo alumno</h1>
+                  <h3>Agregar un nuevo alumno</h3>
 
                   <div id="infoMessage"><?php echo $message;?></div>
 

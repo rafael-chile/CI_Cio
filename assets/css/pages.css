@@ -51,6 +51,7 @@
     #contenido.primaria     { height:483px; }
     #contenido.cionet       { height:483px;}
     #contenido.contactos    { height:500px; }
+    #contenido.admin        { height:100%; font-size: 0.8em;}
 
     #centro                 {padding:25px 15px 15px 35px;}
     
@@ -262,6 +263,7 @@
         
         .form_admin{
 
+            font-size: .8em;
             width:500px;
             border: 1px solid #CED5D7;
             border-radius: 6px;

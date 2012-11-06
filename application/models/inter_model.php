@@ -39,6 +39,27 @@ class Inter_model extends CI_Model
 	}
 
 
+	public function get_all_user_fields($id)
+	{
+		//$this->trigger_events('user');
+
+		//if no id was passed use the current users id
+		$id || $id = $this->session->userdata('user_id');
+
+		
+		$this->db->select('*');
+		$this->db->from('alumnos');
+		$this->db->where('id', $id);
+		$this->db->limit(1);
+		$query = $this->db->get();
+
+		//$this->users();
+
+		return($query->result());
+		//print_r($query->result());
+	}
+
+
 	/**
 	 **/
 	public function get_all()
@@ -56,7 +77,7 @@ class Inter_model extends CI_Model
 
 
 	/**
-	 * register
+	 * Add
 	 *
 	 * @return bool
 	 * @author Mathew
@@ -157,7 +178,7 @@ class Inter_model extends CI_Model
 
 
 	/**
-	 * register
+	 * Delete
 	 *
 	 * @return bool
 	 * @author Mathew
@@ -176,6 +197,42 @@ class Inter_model extends CI_Model
 		}
 		
 	}
+
+
+	/**
+	 * Update
+	 *
+	 * @return bool
+	 * @author Mathew
+	 **/
+	public function update_alumno($id_user, $additional_data = array())
+	{
+		
+		$datos_separados = array();
+		$columnas = $this->db->list_fields('alumnos');
+
+		if (is_array($additional_data))
+		{
+			foreach ($columnas as $column)
+			{
+				if (array_key_exists($column, $additional_data))
+					$datos_separados[$column] = $additional_data[$column];
+			}
+		}
+
+		//return $datos_separados;
+		$this->db->where('id', $id_user);
+		if($this->db->update('alumnos', $datos_separados)){
+		
+			return true;
+		
+		}else{
+		
+			return false;
+		}
+		
+	}
+
 
 	/**
 	 * Checks username

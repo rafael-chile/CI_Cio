@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Colegio CIO de M&eacute;xico ::: <?=$title;?> :::</title>
+	<title>Colegio CIO de M&eacute;xico</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,10 +49,10 @@
 
 				$(".various").fancybox({
 						maxWidth	: 610,
-						maxHeight	: 200,
+						//maxHeight	: 700,
 						fitToView	: false,
 						width		: '70%',
-						height		: '70%',
+						height		: '100%',
 						autoSize	: false,
 						closeClick	: false,
 						openEffect	: 'none',
@@ -92,7 +92,7 @@
 			    	
 			    	<div class="span6">
 			    		
-			    		<h3>Usuarios</h3>
+			    		<h4>Usuarios</h4>
 
 			    		<p style="padding-left:10px;"><a id="add-new-user" href="javascript:;">Crear Nuevo Usuario</a></p>
 
@@ -161,7 +161,7 @@
 			    	
 			    	<div class="span10">
 			    		
-			    		<h3>Alumnos</h3>
+			    		<h4>Alumnos</h4>
 
 			    		<p style="padding-left:10px;"><a id="add-new-alumno" href="javascript:;">Crear Nuevo Alumno</a></p>
 
@@ -192,8 +192,8 @@
 			    					<td><?php echo $alumno->telefono;?></td>			    					
 			    					<td><?php echo $alumno->grado;?></td>			    					
 			    					<td><?php echo $alumno->grupo;?></td>			    					
-			    					<td><?php echo anchor("", 'Editar');?></td>
-			    					<!--<td><?php //echo anchor("alumnos/eliminar_alumno/". $alumno->id, 'Eliminar');?></td>-->
+			    					<!--<td><?php //echo anchor("", 'Editar');?></td>-->
+			    					<td><a class="various" data-fancybox-type="iframe" href="../alumnos/actualizar_alumno/<?php echo $alumno->id; ?>" >Editar</a></td>
 			    					<td><a href="../alumnos/eliminar_alumno/<?php echo $alumno->id; ?>" >Eliminar</a></td>
 			    					
 			    				</tr>
