@@ -17,7 +17,28 @@ class Inter_model extends CI_Model
 
 	}
 
-	
+	/*GET ONLY ONE*/
+	public function get_user($id = NULL)
+	{
+		//$this->trigger_events('user');
+
+		//if no id was passed use the current users id
+		$id || $id = $this->session->userdata('user_id');
+
+		
+		$this->db->select('id,nombre');
+		$this->db->from('alumnos');
+		$this->db->where('id', $id);
+		$this->db->limit(1);
+		$query = $this->db->get();
+
+		//$this->users();
+
+		return($query->result());
+		//print_r($query->result());
+	}
+
+
 	/**
 	 **/
 	public function get_all()
@@ -132,6 +153,28 @@ class Inter_model extends CI_Model
 		$this->trigger_events('post_register');
 
 		return (isset($id)) ? $id : FALSE;*/
+	}
+
+
+	/**
+	 * register
+	 *
+	 * @return bool
+	 * @author Mathew
+	 **/
+	public function delete_alumno($id)
+	{
+		
+		$this->db->where('id',$id);
+		if($this->db->delete('alumnos')){
+		
+			return true;
+		
+		}else{
+		
+			return false;
+		}
+		
 	}
 
 	/**
@@ -458,57 +501,6 @@ class Inter_model extends CI_Model
 	}
 
 	/**
-	 * is_max_login_attempts_exceeded
-	 * Based on code from Tank Auth, by Ilya Konyukhov (https://github.com/ilkon/Tank-Auth)
-	 *
-	 * @param string $identity
-	 * @return boolean
-	 **/
-	public function is_max_login_attempts_exceeded($identity) {
-		if ($this->config->item('track_login_attempts', 'ion_auth')) {
-			$max_attempts = $this->config->item('maximum_login_attempts', 'ion_auth');
-			if ($max_attempts > 0) {
-				$attempts = $this->get_attempts_num($identity);
-				return $attempts >= $max_attempts;
-			}
-		}
-		return FALSE;
-	}
-
-	/**
-	 * Get number of attempts to login occured from given IP-address or identity
-	 * Based on code from Tank Auth, by Ilya Konyukhov (https://github.com/ilkon/Tank-Auth)
-	 *
-	 * @param	string $identity
-	 * @return	int
-	 */
-	function get_attempts_num($identity)
-	{
-		if ($this->config->item('track_login_attempts', 'ion_auth')) {
-			$ip_address = $this->_prepare_ip($this->input->ip_address());
-
-			$this->db->select('1', FALSE);
-			$this->db->where('ip_address', $ip_address);
-			if (strlen($identity) > 0) $this->db->or_where('login', $identity);
-
-			$qres = $this->db->get($this->tables['login_attempts']);
-			return $qres->num_rows();
-		}
-		return 0;
-	}
-	
-	/**
-	 * Get a boolean to determine if an account should be locked out due to
-	 * exceeded login attempts within a given period
-	 *
-	 * @return	boolean
-	 */
-	public function is_time_locked_out($identity) {
-
-		return $this->is_max_login_attempts_exceeded($identity) && $this->get_last_attempt_time($identity) > time() - $this->config->item('lockout_time', 'ion_auth');
-	}
-	
-	/**
 	 * Get the time of the last time a login attempt occured from given IP-address or identity
 	 *
 	 * @param	string $identity
@@ -531,87 +523,7 @@ class Inter_model extends CI_Model
 		return 0;
 	}
 
-	/**
-	 * increase_login_attempts
-	 * Based on code from Tank Auth, by Ilya Konyukhov (https://github.com/ilkon/Tank-Auth)
-	 *
-	 * @param string $identity
-	 **/
-	public function increase_login_attempts($identity) {
-		if ($this->config->item('track_login_attempts', 'ion_auth')) {
-			$ip_address = $this->_prepare_ip($this->input->ip_address());
-			return $this->db->insert($this->tables['login_attempts'], array('ip_address' => $ip_address, 'login' => $identity, 'time' => time()));
-		}
-		return FALSE;
-	}
-
-	/**
-	 * clear_login_attempts
-	 * Based on code from Tank Auth, by Ilya Konyukhov (https://github.com/ilkon/Tank-Auth)
-	 *
-	 * @param string $identity
-	 **/
-	public function clear_login_attempts($identity, $expire_period = 86400) {
-		if ($this->config->item('track_login_attempts', 'ion_auth')) {
-			$ip_address = $this->_prepare_ip($this->input->ip_address());
-
-			$this->db->where(array('ip_address' => $ip_address, 'login' => $identity));
-			// Purge obsolete login attempts
-			$this->db->or_where('time <', time() - $expire_period, FALSE);
-
-			return $this->db->delete($this->tables['login_attempts']);
-		}
-		return FALSE;
-	}
-
 	
-	public function where($where, $value = NULL)
-	{
-		$this->trigger_events('where');
-
-		if (!is_array($where))
-		{
-			$where = array($where => $value);
-		}
-
-		array_push($this->_ion_where, $where);
-
-		return $this;
-	}
-
-	public function like($like, $value = NULL)
-	{
-		$this->trigger_events('like');
-
-		if (!is_array($like))
-		{
-			$like = array($like => $value);
-		}
-
-		array_push($this->_ion_like, $like);
-
-		return $this;
-	}
-
-	public function select($select)
-	{
-		$this->trigger_events('select');
-
-		$this->_ion_select[] = $select;
-
-		return $this;
-	}
-
-	public function order_by($by, $order='desc')
-	{
-		$this->trigger_events('order_by');
-
-		$this->_ion_order_by = $by;
-		$this->_ion_order    = $order;
-
-		return $this;
-	}
-
 
 	/**
 	 * groups

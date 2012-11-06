@@ -18,20 +18,13 @@
 	<script type="text/javascript">
 			$(document).ready(function() {
 			
-				/*$("#fancybox-manual-close").fancybox({
-						 'onClosed': function() {
-						   //parent.location.reload(true);
-						   alert("Cerrando");
-						  }
-				 });*/
-
 				$("#fancybox-manual-close").click(function() {
 								parent.location.reload(true);
 								parent.$.fancybox.close();
 				});
 
-
 			});
+			
 		</script>
 
 </head>
@@ -41,16 +34,27 @@
 
 	switch($action)
 	 {
-	  case 'nuevo_alumno': echo '<p>El alumno ha sido agregado correctamente.</p>';
-	  break;
-	  case 'nuevo_usuario': echo '<p>El usuario ha sido agregado correctamente.</p>';
-	  break;                
+	  case 'nuevo_alumno': 			
+	  						echo '<p>El alumno ha sido agregado correctamente.</p>';
+	  						break;
+	  case 'nuevo_usuario': 		
+	  						echo '<p>El usuario ha sido agregado correctamente.</p>';
+	  						break;                
+	  case 'alumno_eliminado': 		
+	  						echo '<p>El alumno ha sido eliminado.</p>';
+	  						break; 
+	  case 'alumno_no_eliminado': 	
+	  						echo '<p>El alumno NO se ha sido eliminado.</p>';
+	  						break; 
 	 }
 
 ?>
-
 	
+	<!--<a id="<?php //echo $id_anchor;?>" href="javascript:;">Close</a>-->
 	<a id="fancybox-manual-close" href="javascript:;">Close</a>
+	<a id="manual-close" href="javascript:;">Close</a>
+	
+	
 
 
 </body>

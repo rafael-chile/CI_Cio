@@ -22,6 +22,15 @@ class Alumnos extends CI_Controller {
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 	}
 
+	public function message()
+	{
+		
+		$data['action']='nuevo_usuario';
+		$this->load->view('templates/messages',$data);
+		
+	}
+
+
 	//redirect if needed, otherwise display the user list
 	
 	public function index()
@@ -58,9 +67,7 @@ class Alumnos extends CI_Controller {
 	}
 
 	//#####################################
-	//#####################################
 	//AGREGAR NUEVO ALUMNO
-	//#####################################
 	//#####################################
 
 	//create a new user
@@ -175,11 +182,81 @@ class Alumnos extends CI_Controller {
 				'value' => $this->form_validation->set_value('grupo'),
 			);
 
+			//---- ¡¡¡¡¡¡IMPORTANTE!!!!!!
 			//Mantiene el INTER en la URL porque está en la carpeta INTER de las vistas.
+			//----
 			$this->load->view('inter/crear_alumno', $this->data);
 		}
 	}
 
+	//#####################################
+	//ELIMINAR ALUMNO
+	//#####################################
+
+	//create a new user
+	function eliminar_alumno($id)
+	{
+		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
+		{
+			redirect('inter', 'refresh');
+		}
+
+		//$this->load->library('form_validation');
+		$this->form_validation->set_rules('confirm', 'confirmation', 'required');
+		$this->form_validation->set_rules('id', 'user ID', 'required|alpha_numeric');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			// insert csrf check
+			//$this->data['csrf'] = $this->_get_csrf_nonce();
+			//$this->data['user'] = $this->inter_model->get_user($id);
+			$data['user'] = $this->inter_model->get_user($id);
+
+			//var_dump($this->data['id']);
+
+			$this->load->view('inter/eliminar_alumno', $data);
+		}
+		else
+		{
+			// do we really want to deactivate?
+			if ($this->input->post('confirm') == 'yes')
+			{
+				// do we have a valid request?
+				if ($id != $this->input->post('id'))
+				{				
+					show_error('This form post did not pass our security checks.');
+				}
+
+				// do we have the right userlevel?
+				if ($this->ion_auth->logged_in() && $this->ion_auth->is_admin())
+				{
+					$this->session->set_flashdata('message', $this->ion_auth->messages());
+					if($this->inter_model->delete_alumno($id)){
+						$data['action']='alumno_eliminado';
+						$this->load->view('templates/messages',$data);
+						//redirect('inter','refresh');	
+					}
+					
+
+				}
+			}
+			elseif($this->input->post('confirm') == 'no')
+			{
+				
+				$data['action']='alumno_no_eliminado';
+				$this->load->view('templates/messages',$data);	
+				//redirect('inter','refresh');
+			}
+
+			//redirect them back to the auth page
+			//redirect('inter', 'refresh');
+			
+
+		}
+
+		
+		
+	}
 }
 
 /* End of file alumnos.php */

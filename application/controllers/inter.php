@@ -201,6 +201,7 @@ class Inter extends CI_Controller {
 		{
 			//redirect('auth/login');
 			echo "NO esta logueado";
+			echo "<br/><a href='../cionet'>Login</a>";
 
 		}elseif ($this->ion_auth->is_admin()){
 

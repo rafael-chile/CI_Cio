@@ -47,6 +47,19 @@
 				});
 
 
+				$(".various").fancybox({
+						maxWidth	: 610,
+						maxHeight	: 200,
+						fitToView	: false,
+						width		: '70%',
+						height		: '70%',
+						autoSize	: false,
+						closeClick	: false,
+						openEffect	: 'none',
+						closeEffect	: 'none'
+				});
+
+
 			});
 		</script>
 
@@ -169,7 +182,7 @@
 			    			</tr>
 			    			<?php foreach ($alumnos as $alumno):?>
 			    				<tr>
-			    					<td><?php echo $alumno->nombre;?></td>
+			    					<td><?php echo $alumno->id ." - ". $alumno->nombre;?></td>
 			    					<td><?php echo $alumno->apellido_pat;?></td>
 			    					<td><?php echo $alumno->apellido_mat;?></td>
 			    					<td><?php echo $alumno->curp;?></td>
@@ -180,7 +193,9 @@
 			    					<td><?php echo $alumno->grado;?></td>			    					
 			    					<td><?php echo $alumno->grupo;?></td>			    					
 			    					<td><?php echo anchor("", 'Editar');?></td>
-			    					<td><?php echo anchor("", 'Eliminar');?></td>
+			    					<!--<td><?php //echo anchor("alumnos/eliminar_alumno/". $alumno->id, 'Eliminar');?></td>-->
+			    					<td><a class="various" data-fancybox-type="iframe" href="../alumnos/eliminar_alumno/<?php echo $alumno->id; ?>" >Eliminar</a></td>
+			    					
 			    				</tr>
 			    			<?php endforeach;?>
 			    		</table>
