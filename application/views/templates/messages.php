@@ -21,6 +21,7 @@
 				$("#fancybox-manual-close").click(function() {
 								parent.location.reload(true);
 								parent.$.fancybox.close();
+
 				});
 
 			});
@@ -52,7 +53,6 @@
 	
 	<!--<a id="<?php //echo $id_anchor;?>" href="javascript:;">Close</a>-->
 	<a id="fancybox-manual-close" href="javascript:;">Close</a>
-	<a id="manual-close" href="javascript:;">Close</a>
 	
 	
 
