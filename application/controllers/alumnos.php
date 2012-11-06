@@ -232,9 +232,9 @@ class Alumnos extends CI_Controller {
 				{
 					$this->session->set_flashdata('message', $this->ion_auth->messages());
 					if($this->inter_model->delete_alumno($id)){
-						$data['action']='alumno_eliminado';
-						$this->load->view('templates/messages',$data);
-						//redirect('inter','refresh');	
+						//$data['action']='alumno_eliminado';
+						//$this->load->view('templates/messages',$data);
+						redirect('inter','refresh');	
 					}
 					
 
@@ -243,9 +243,9 @@ class Alumnos extends CI_Controller {
 			elseif($this->input->post('confirm') == 'no')
 			{
 				
-				$data['action']='alumno_no_eliminado';
-				$this->load->view('templates/messages',$data);	
-				//redirect('inter','refresh');
+				//$data['action']='alumno_no_eliminado';
+				//$this->load->view('templates/messages',$data);	
+				redirect('inter','refresh');
 			}
 
 			//redirect them back to the auth page
