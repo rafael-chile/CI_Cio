@@ -21,7 +21,27 @@
 				$("#fancybox-manual-close").click(function() {
 								parent.location.reload(true);
 								parent.$.fancybox.close();
+								afterClose : function() {
+								        parent.location.reload();
+								        return;
+								}
 
+				});
+
+				$(".various").fancybox({
+						maxWidth	: 800,
+						maxHeight	: 600,
+						fitToView	: false,
+						width		: '70%',
+						height		: '70%',
+						autoSize	: false,
+						closeClick	: false,
+						openEffect	: 'none',
+						closeEffect	: 'none'
+						afterClose : function() {
+						        parent.location.reload();
+						        return;
+						}
 				});
 
 			});
@@ -53,6 +73,7 @@
 	
 	<!--<a id="<?php //echo $id_anchor;?>" href="javascript:;">Close</a>-->
 	<a id="fancybox-manual-close" href="javascript:;">Close</a>
+	<a class="various" id="manual-close" href="javascript:;">Cerrar</a>
 	
 	
 

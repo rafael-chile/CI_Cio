@@ -194,7 +194,8 @@
 			    					<td><?php echo $alumno->grupo;?></td>			    					
 			    					<td><?php echo anchor("", 'Editar');?></td>
 			    					<!--<td><?php //echo anchor("alumnos/eliminar_alumno/". $alumno->id, 'Eliminar');?></td>-->
-			    					<td><a class="various" data-fancybox-type="iframe" href="../alumnos/eliminar_alumno/<?php echo $alumno->id; ?>" >Eliminar</a></td>
+			    					<!--<td><a class="various fancybox-ajax" data-fancybox-type="iframe" href="../alumnos/eliminar_alumno/<?php //echo $alumno->id; ?>" >Eliminar</a></td>-->
+			    					<td><a class="" href="../alumnos/eliminar_alumno/<?php echo $alumno->id; ?>" >Eliminar</a></td>
 			    					
 			    				</tr>
 			    			<?php endforeach;?>
