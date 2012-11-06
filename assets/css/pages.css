@@ -38,7 +38,7 @@
     body.admin_adduser {   
                 background-image:url();
                 background-color:white;
-                padding:15px;
+                padding: 2px 15px;
                 /*overflow: hidden;*/
                 
                 }
@@ -264,29 +264,34 @@
         .form_admin{
 
             font-size: .8em;
-            width:500px;
+            width:400px;
             border: 1px solid #CED5D7;
             border-radius: 6px;
             /*padding: 45px 45px 20px;*/
-            padding: 45px 45px 20px 20px;
-            margin-top:30px;
+            padding: 20px 20px 20px 0px;
+            margin-top:0px;
             background-color: white;
             box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
-            height: 370px;
+            height: 360px;
         }
 
         .add_alumno{
-            height: 470px; 
+            height: 430px; 
+        }
+
+        .edit_user{
+            height: 320px; 
         }
 
         .form_admin label{
             display: block;
-            margin-left: 60px;
+            margin-left: 25px;
+            padding-top: 10px;
             #margin-left: 0px;
             text-align: left;
             font-weight: bold;
             font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-            font-size: 105%;
+            font-size: 1.05em;
             float: left;
         }
         
@@ -296,8 +301,8 @@
             border: 1px solid #CED5D7;
             resize: none;
             box-shadow:0 0 0 3px #EEF5F7;
-            margin: 5px 25px;
-            height: 15px;
+            margin: 5px 15px 5px 15px;
+            height: 12px;
             float: right;
 
         }
@@ -314,7 +319,7 @@
             border: 1px solid #CED5D7;
             resize: none;
             box-shadow:0 0 0 3px #EEF5F7;
-            margin: 5px 25px;
+            margin: 5px 15px;
             float: right;
         }
 

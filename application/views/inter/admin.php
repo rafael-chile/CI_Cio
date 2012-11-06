@@ -31,7 +31,7 @@
 									//href : '/cio/primaria',
 									href : '../inter/create_user',
 									type : 'iframe',
-									width: 610,
+									width: 470,
 									'scrolling' : 'no'
 								});
 				});
@@ -41,19 +41,20 @@
 									//href : '/cio/primaria',
 									href : '../alumnos/crear_alumno',
 									type : 'iframe',
-									width: 610,
+									width: 470,
 									'scrolling' : 'no'
 								});
 				});
 
 
 				$(".various").fancybox({
-						maxWidth	: 610,
+						//maxWidth	: 470,
 						//maxHeight	: 700,
-						fitToView	: false,
-						width		: '70%',
-						height		: '100%',
-						autoSize	: false,
+						//fitToView	: false,
+						//width		: '70%',
+						width		: '470',
+						//height		: '100%',
+						autoSize	: true,
 						closeClick	: false,
 						openEffect	: 'none',
 						closeEffect	: 'none'
@@ -84,37 +85,46 @@
 
     		<div id="centro">
     			Hola <b><?=$nombre; ?></b>.
-    			<br/><br/>
+    			
 
 	    		<div id="infoMessage"><?php echo $message;?></div>
 
 	    		<div class="row-fluid">
 			    	
-			    	<div class="span6">
+			    	<div class="span7">
 			    		
 			    		<h4>Usuarios</h4>
 
 			    		<p style="padding-left:10px;"><a id="add-new-user" href="javascript:;">Crear Nuevo Usuario</a></p>
+
+			    		<?php //var_dump($users);?>
 
 			    		<table class="table table-bordered">
 			    			<tr>
 			    				<th>Nombre</th>
 			    				<th>Apellido</th>
 			    				<th>Correo</th>
+			    				<th>Telef&oacute;no</th>
 			    				<th>Grupos</th>
 			    				<th>Estado del usuario</th>
+			    				<th>Edici&oacute;n</th>
+
 			    			</tr>
 			    			<?php foreach ($users as $user):?>
 			    				<tr>
 			    					<td><?php echo $user->first_name;?></td>
 			    					<td><?php echo $user->last_name;?></td>
 			    					<td><?php echo $user->email;?></td>
+			    					<td><?php echo $user->phone;?></td>
 			    					<td>
 			    						<?php foreach ($user->groups as $group):?>
 			    							<?php echo $group->name;?><br />
 			    		                <?php endforeach?>
 			    					</td>
+			    					<?php $attributes = array('class' => 'various', 'data-fancybox-type' => 'iframe'); ?>
+			    					<?php //$attributes = array('' => ''); ?>
 			    					<td><?php echo ($user->active) ? anchor("inter/deactivate/".$user->id, 'Activo') : anchor("inter/activate/". $user->id, 'Inactivo');?></td>
+			    					<td><?php echo anchor("inter/edit_user/".$user->id, 'Editar', $attributes);?></td>
 			    				</tr>
 			    			<?php endforeach;?>
 			    		</table>

@@ -49,6 +49,9 @@
 	  						break; 
 	  case 'actualizado_alumno': 	
 	  						echo '<p>Los datos del alumno han sido actualizados.</p>';
+	  						break;
+	  case 'usuario_editado': 	
+	  						echo '<p>El usuario ha sido actualizado.</p>';
 	  						break; 
 	 }
 
