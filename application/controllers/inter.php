@@ -618,6 +618,8 @@ class Inter extends CI_Controller {
 				'value' => $this->form_validation->set_value('password_confirm'),
 			);
 
+			$this->data['estudiante_bd'] = $this->inter_model->get_user_for_ajax();
+
 			$this->load->view('inter/create_user', $this->data);
 		}
 	}

@@ -73,25 +73,50 @@
             <?php echo form_submit($attributes_submit);?>
 
       <?php echo form_close();?>
+                <?php 
 
-<script type="text/javascript" src="<?php echo base_url().'assets/specific/source_fancy/jquery-1.8.2.min.js';?>">
-</script>   
+                    //$arrayName = array('harry', 'harry', 'harry', 'harry', 'harry', 'harry', 'harry', 'harry', 'harry', 'harry', 'vivacious', 'voldemort');
+                    $estudiantes = ($estudiante_bd);
+                    //var_dump($estudiantes);
+                    
+                ?>
+<script type="text/javascript" src="<?php echo base_url().'assets/specific/source_fancy/jquery-1.8.2.min.js';?>"></script>   
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
       <script type="text/javascript">
             $(document).ready(function(){
-                  
-                  
-
+                  //NOT USED YET                  
+                  $('#searchBox').autocomplete({ source: ['asfd', 'asdfafsdf', '23432ewr', 'gag4156'], delay: 1000 });
+                  $('#searchBox').keydown( function () {   
+                      $('#searchBox').autocomplete('option', 'delay', 1000 / ($('#searchBox').val().length + 1));
+                  });
             });
+
+            function activate_searchBox(){
+
+                //Agregar el autocomplete a cada input después de decir cuántos hijos tiene el user.
+                //Se manda llamar después de crear los inpus.
+                //$('.hijos').autocomplete({ source: ['harry', 'ron', 'hermione', 'harriet', 'harper', 'haskell', 'ronald', 'raconteurs', 'valerian', 'voxel', 'vivacious', 'voldemort'], delay: 1000 });
+                
+                $('.hijos').autocomplete({ source: <?php echo $estudiantes; ?>, delay: 1000 });
+                
+                $('.hijos').keydown( function () {   
+                      $('.hijos').autocomplete('option', 'delay', 1000 / ($('.hijos').val().length + 1));
+                });
+            }
 
             function show_students(){
 
                 if($('#grupo').val() == 4){
                     $('#no_hijos').show();
+                    add_inputs();
+                    //$('#no_hijos').selected('0');
                 }
                 else{
                     $('#no_hijos').hide();
-                    $('.hijos').hide();
+                    $('.hijos').remove();
                 }
             }
 
@@ -103,9 +128,8 @@
                 var i, total;
                 var label, input, div, div_clear;
 
-                //alert($('#no_hijos').val());
-
-                 $('.hijos').remove(); 
+                $('.hijos').remove(); 
+                activate_searchBox();
                   
                 for (i=0; i<=(num_hijos-1); i++) {
                     
@@ -124,6 +148,7 @@
                     div_clear.insertBefore('#submit_form');
 
                 }
+                activate_searchBox(); 
 
                     
 

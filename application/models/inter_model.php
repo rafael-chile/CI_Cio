@@ -38,6 +38,18 @@ class Inter_model extends CI_Model
 		//print_r($query->result());
 	}
 
+	/*GET ONLY ONE*/
+	public function get_user_for_ajax()
+	{
+				
+		$this->db->select('id as value,nombre as label');
+		$this->db->from('alumnos');
+		$query = $this->db->get();
+
+		return json_encode($query->result());
+		
+	}
+
 
 	public function get_all_user_fields($id)
 	{
