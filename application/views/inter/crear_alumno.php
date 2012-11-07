@@ -17,9 +17,9 @@
 </head>
 <body class="admin_adduser">
 
-                  <h3>Agregar un nuevo alumno</h3>
+      <h3>Agregar un nuevo alumno</h3>
 
-                  <div id="infoMessage"><?php echo $message;?></div>
+      <div id="infoMessage"><?php echo $message;?></div>
 
       <?php 
 
