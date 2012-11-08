@@ -74,11 +74,7 @@
 
       <?php echo form_close();?>
                 <?php 
-
-                    //$arrayName = array('harry', 'harry', 'harry', 'harry', 'harry', 'harry', 'harry', 'harry', 'harry', 'harry', 'vivacious', 'voldemort');
                     $estudiantes = ($estudiante_bd);
-                    //var_dump($estudiantes);
-                    
                 ?>
 <script type="text/javascript" src="<?php echo base_url().'assets/specific/source_fancy/jquery-1.8.2.min.js';?>"></script>   
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" type="text/css" />
@@ -92,18 +88,124 @@
                   $('#searchBox').keydown( function () {   
                       $('#searchBox').autocomplete('option', 'delay', 1000 / ($('#searchBox').val().length + 1));
                   });
+
+
+                  $.widget("custom.catcomplete", $.ui.autocomplete, {
+                      _renderMenu: function(ul, items) {
+                          var self = this;
+                     
+                          $.each(items, function(index, item) {
+                              self._renderItem(ul, item);
+                          });
+                      }
+                  });
+
             });
 
-            function activate_searchBox(){
+            
+
+            function activate_searchBox(num_hijos){
 
                 //Agregar el autocomplete a cada input después de decir cuántos hijos tiene el user.
-                //Se manda llamar después de crear los inpus.
-                //$('.hijos').autocomplete({ source: ['harry', 'ron', 'hermione', 'harriet', 'harper', 'haskell', 'ronald', 'raconteurs', 'valerian', 'voxel', 'vivacious', 'voldemort'], delay: 1000 });
+                //Se manda llamar después de crear los inputs.
+
+                var autocomp_opt1={
+                         source: <?php echo $estudiantes; ?>,
+                         delay: 0,
+                         select: function(event, ui) {
+                                $('#hijo1').val(ui.item.label);
+                                $('#hijo_hidden1').val(ui.item.value);
+                                return false;
+                         },
+                         focus: function(event, ui) {
+                                $("#hijo1").val(ui.item.label);
+                                return false;
+                         }
+                };
+
+                var autocomp_opt2={
+                         source: <?php echo $estudiantes; ?>,
+                         delay: 0,
+                         select: function(event, ui) {
+                                $('#hijo2').val(ui.item.label);
+                                $('#hijo_hidden2').val(ui.item.value);
+                                return false;
+                         },
+                         focus: function(event, ui) {
+                                $("#hijo2").val(ui.item.label);
+                                return false;
+                         }
+                };
+
+                var autocomp_opt3={
+                         source: <?php echo $estudiantes; ?>,
+                         delay: 0,
+                         select: function(event, ui) {
+                                $('#hijo3').val(ui.item.label);
+                                $('#hijo_hidden3').val(ui.item.value);
+                                return false;
+                         },
+                         focus: function(event, ui) {
+                                $("#hijo3").val(ui.item.label);
+                                return false;
+                         }
+                };
+
+                var autocomp_opt4={
+                         source: <?php echo $estudiantes; ?>,
+                         delay: 0,
+                         select: function(event, ui) {
+                                $('#hijo4').val(ui.item.label);
+                                $('#hijo_hidden4').val(ui.item.value);
+                                return false;
+                         },
+                         focus: function(event, ui) {
+                                $("#hijo4").val(ui.item.label);
+                                return false;
+                         }
+                };
+
+                var autocomp_opt5={
+                         source: <?php echo $estudiantes; ?>,
+                         delay: 0,
+                         select: function(event, ui) {
+                                $('#hijo5').val(ui.item.label);
+                                $('#hijo_hidden5').val(ui.item.value);
+                                return false;
+                         },
+                         focus: function(event, ui) {
+                                $("#hijo5").val(ui.item.label);
+                                return false;
+                         }
+                };
+
                 
-                $('.hijos').autocomplete({ source: <?php echo $estudiantes; ?>, delay: 1000 });
-                
+                var vect_opt = new Array();
+                vect_opt.push(autocomp_opt1);
+                vect_opt.push(autocomp_opt2);
+                vect_opt.push(autocomp_opt3);
+                vect_opt.push(autocomp_opt4);
+                vect_opt.push(autocomp_opt5);
+
+                for(var i=1;i<=num_hijos;i++){
+                        
+                    $('#hijo'+i).catcomplete(vect_opt[i-1]);
+                }
+
+
+                /*$('.hijos').autocomplete({ 
+                                 source: <?php echo $estudiantes; ?>, 
+                                 delay: 500,
+                                 select: function(event, ui) {
+                                    $("#" + labels[i]).val(ui.item.label);
+                                    $("#" + labels[i]+"_hid").val(ui.item.value);
+                                }
+                                
+                });*/
+
+
                 $('.hijos').keydown( function () {   
-                      $('.hijos').autocomplete('option', 'delay', 1000 / ($('.hijos').val().length + 1));
+                      $('.hijos').autocomplete('option', 'delay', 500 / ($('.hijos').val().length + 1));
                 });
             }
 
@@ -116,42 +218,52 @@
                 }
                 else{
                     $('#no_hijos').hide();
+
                     $('.hijos').remove();
+                    $('.hijo_hidden').remove();
+                    $('.new_div').remove();
+                    $('.div_clear').remove();
                 }
             }
 
 
             function add_inputs(){
                 
-                //var i = $('#no_hijos').val();
                 var num_hijos = $('#no_hijos option:selected').val();
                 var i, total;
                 var label, input, div, div_clear;
-
+                //var 
+                
                 $('.hijos').remove(); 
-                activate_searchBox();
-                  
+                $('.hijo_hidden').remove(); 
+                $('.new_div').remove(); 
+                $('.div_clear').remove(); 
+
+                activate_searchBox(num_hijos);   
+
                 for (i=0; i<=(num_hijos-1); i++) {
                     
                     total= i+1;
 
                     label       = $('<label class="hijos">').text('Hijo ' + total);
                     input       = $('<input type="text" class="hijos">').attr({id:'hijo'+total, name:'hijo'+total});
-                    div         = $('<div/>');
-                    div_clear   = $('<div class="clearboth"/>');
+                    div         = $('<div class="new_div"/>');
+                    div_clear   = $('<div class="clearboth div_clear"/>');
 
+                    hidden_inp  = $('<input type="hidden" class="hijo_hidden id">').attr({id:'hijo_hidden'+total, name:'hijo_hidden[]'});
+
+                    hidden_inp.appendTo('#id_form');
 
                     label.appendTo(div);
                     input.appendTo(div);
                     
                     div.insertBefore('#submit_form');
                     div_clear.insertBefore('#submit_form');
-
-                }
-                activate_searchBox(); 
-
                     
+                }
 
+                activate_searchBox(num_hijos); 
+                
             }
 
             
