@@ -144,8 +144,6 @@ class Inter_model extends CI_Model
 			}
 		}
 
-		//return $datos_separados;
-
 		if($this->db->insert('alumnos', $datos_separados)){
 		
 			return true;
@@ -245,6 +243,37 @@ class Inter_model extends CI_Model
 		
 	}
 
+
+
+	/**
+	 * Add 
+	 *
+	 * @return bool
+	 * @author Mathew
+	 **/
+	public function add_alumno_to_padre($additional_data = array())
+	{
+		$datos_separados = array();
+		$columnas = $this->db->list_fields('alumnos');
+
+		if (is_array($additional_data))
+		{
+			foreach ($columnas as $column)
+			{
+				if (array_key_exists($column, $additional_data))
+					$datos_separados[$column] = $additional_data[$column];
+			}
+		}
+
+		if($this->db->insert('alumnos', $datos_separados)){
+		
+			return true;
+		
+		}else{
+		
+			return false;
+		}
+	}
 
 	/**
 	 * Checks username

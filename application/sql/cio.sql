@@ -195,10 +195,11 @@ CREATE TABLE IF NOT EXISTS `alumnos_users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5;
 
 --
--- Dumping data for table `users_groups`
+-- Dumping data for table `alumnos_users`
 --
 
-INSERT INTO `users_groups` (`id`, `alumno_id`, `user_id`) VALUES
-(1, 1, 5),
-(2, 1, 5),
-(3, 2, 2);
+INSERT INTO `alumnos_users` (`id`, `alumno_id`, `user_id`) VALUES
+(1, 1, 2),
+(2, 2, 6),
+(3, 26, 5);
+(3, 27, 6);

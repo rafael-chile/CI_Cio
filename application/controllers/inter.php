@@ -513,6 +513,8 @@ class Inter extends CI_Controller {
 			redirect('inter', 'refresh');
 		}
 
+		
+
 		//validate form input
 		$this->form_validation->set_rules('first_name', 'Nombre', 'required|xss_clean');
 		$this->form_validation->set_rules('last_name', 'Apellido', 'required|xss_clean');
@@ -539,9 +541,22 @@ class Inter extends CI_Controller {
 				'company'    => $this->input->post('company'),
 				'phone'      => $this->input->post('phone1'),
 			);
+
+
+			//Read POST
+			print_r($this->input->post('hijo_hidden'));
+			
 		}
+
 		if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data, $grupo))
 		{ 
+			
+			//Add new student values to database.
+
+			//Read POST
+			print_r($this->input->post('hijo_hidden'));
+
+
 			//check to see if we are creating the user
 			//redirect them back to the admin page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
