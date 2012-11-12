@@ -518,14 +518,12 @@ class Inter extends CI_Controller {
 		//validate form input
 		$this->form_validation->set_rules('first_name', 'Nombre', 'required|xss_clean');
 		$this->form_validation->set_rules('last_name', 'Apellido', 'required|xss_clean');
-		$this->form_validation->set_rules('email', 'Correo electrónico', 'required|valid_email');
+		//$this->form_validation->set_rules('email', 'Correo electrónico', 'required|valid_email');
 		$this->form_validation->set_rules('grupo', 'Grupo', 'required|xss_clean');
 		$this->form_validation->set_rules('phone1', 'Teléfono', 'required|xss_clean|min_length[5]|max_length[12]');
-		/*$this->form_validation->set_rules('phone2', 'Second Part of Phone', 'required|xss_clean|min_length[3]|max_length[3]');
-		$this->form_validation->set_rules('phone3', 'Third Part of Phone', 'required|xss_clean|min_length[4]|max_length[4]');*/
 		$this->form_validation->set_rules('company', 'Trabajo', 'required|xss_clean');
-		$this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
-		$this->form_validation->set_rules('password_confirm', 'Confirmar contraseña', 'required');
+		//$this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
+		//$this->form_validation->set_rules('password_confirm', 'Confirmar contraseña', 'required');
 
 		if ($this->form_validation->run() == true)
 		{
@@ -542,20 +540,17 @@ class Inter extends CI_Controller {
 				'phone'      => $this->input->post('phone1'),
 			);
 
-
-			//Read POST
-			print_r($this->input->post('hijo_hidden'));
-			
 		}
 
-		if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data, $grupo))
+		if ($this->form_validation->run() == true && $id_user=($this->ion_auth->register($username, $password, $email, $additional_data, $grupo)))
 		{ 
-			
-			//Add new student values to database.
-
 			//Read POST
-			print_r($this->input->post('hijo_hidden'));
+			//print_r($this->input->post('hijo_hidden'));
+			$hijos_info = $this->input->post('hijo_hidden');
 
+			if($this->inter_model->add_alumno_to_padre($id_user,$hijos_info)){
+				echo "Se agregaron los ids";
+			}
 
 			//check to see if we are creating the user
 			//redirect them back to the admin page
@@ -566,6 +561,10 @@ class Inter extends CI_Controller {
 		}
 		else
 		{ 
+			
+			
+
+
 			//display the create user form
 			//set the flash data error message if there is one
 			$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));

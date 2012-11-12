@@ -48,7 +48,7 @@
 
             $attributes_submit = array("name" => "submit", "value" => "Crear Usuario", "id" => "submit_form");
             //<input type="submit" name="submit" value="Crear usuario" Array />
-            $attributes = array('id' => 'id_form', 'class' => 'form_admin', 'onChange' => 'javascript:showStudents();');
+            $attributes = array('id' => 'id_form', 'class' => 'form_admin');
             echo form_open("inter/create_user",$attributes);
       ?>
 
@@ -100,6 +100,24 @@
                       }
                   });
 
+
+                  $('#id_form').submit(function() {
+                      
+                      //Read hidden values.
+                      var i
+                      $(".hijo_hidden").each(
+                          function(){
+                              if( $(this).val()>= 1) {
+                                  alert($(this).val());
+                              }
+                              else{
+                                 $(this).remove();
+                              }
+                              //alert($(this).val());
+                          }
+                      )
+                      return false;
+                  });
             });
 
             
@@ -250,7 +268,7 @@
                     div         = $('<div class="new_div"/>');
                     div_clear   = $('<div class="clearboth div_clear"/>');
 
-                    hidden_inp  = $('<input type="hidden" class="hijo_hidden id">').attr({id:'hijo_hidden'+total, name:'hijo_hidden[]'});
+                    hidden_inp  = $('<input type="hidden" class="hijo_hidden">').attr({id:'hijo_hidden'+total, name:'hijo_hidden[]'});
 
                     hidden_inp.appendTo('#id_form');
 

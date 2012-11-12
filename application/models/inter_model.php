@@ -42,7 +42,7 @@ class Inter_model extends CI_Model
 	public function get_user_for_ajax()
 	{
 				
-		$this->db->select('id as value,nombre as label');
+		$this->db->select('id as value,CONCAT_WS(" ",nombre,apellido_pat) as label',FALSE);
 		$this->db->from('alumnos');
 		$query = $this->db->get();
 
@@ -251,28 +251,33 @@ class Inter_model extends CI_Model
 	 * @return bool
 	 * @author Mathew
 	 **/
-	public function add_alumno_to_padre($additional_data = array())
+	public function add_alumno_to_padre($id_user, $hijos_info)
 	{
-		$datos_separados = array();
-		$columnas = $this->db->list_fields('alumnos');
+		//echo $id_user;
+		
+		//print_r($hijos_info);
 
-		if (is_array($additional_data))
+		if (is_array($hijos_info))
 		{
-			foreach ($columnas as $column)
+			foreach ($hijos_info as $alumno)
 			{
-				if (array_key_exists($column, $additional_data))
-					$datos_separados[$column] = $additional_data[$column];
+				if($alumno!= 0){
+					$this->db->set('alumno_id', $alumno);
+					$this->db->set('user_id', $id_user);
+					$this->db->insert('alumnos_users');	
+				}
+				
 			}
 		}
 
-		if($this->db->insert('alumnos', $datos_separados)){
+		/*if($this->db->insert('alumnos_users', $datos_separados)){
 		
 			return true;
 		
 		}else{
 		
 			return false;
-		}
+		}*/
 	}
 
 	/**
