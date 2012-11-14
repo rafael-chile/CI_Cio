@@ -103,17 +103,25 @@
 
                   $('#id_form').submit(function() {
                       
-                      //Read hidden values.
-                      var i
+                      //if the hidden value is not valid (is less than 1 since input field was not filled automatically), remove proper hidden input.
+                      var i = 1;
+
+                      $(".hijos").each(
+                          function(){
+                              if( !$(this).val() ) {
+                                //$('#hijo_hidden' + i).remove();
+                              }
+                          }
+                          i++;
+
+                      )
+
+
                       $(".hijo_hidden").each(
                           function(){
-                              if( $(this).val()>= 1) {
-                                  alert($(this).val());
+                              if( $(this).val()< 1 ) {
+                                  $(this).remove();
                               }
-                              else{
-                                 $(this).remove();
-                              }
-                              //alert($(this).val());
                           }
                       )
                       return false;
