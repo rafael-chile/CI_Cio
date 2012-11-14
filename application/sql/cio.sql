@@ -201,5 +201,5 @@ CREATE TABLE IF NOT EXISTS `alumnos_users` (
 INSERT INTO `alumnos_users` (`id`, `alumno_id`, `user_id`) VALUES
 (1, 1, 2),
 (2, 2, 6),
-(3, 26, 5);
-(3, 27, 6);
+(3, 26, 5),
+(4, 27, 6);

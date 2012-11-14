@@ -518,12 +518,12 @@ class Inter extends CI_Controller {
 		//validate form input
 		$this->form_validation->set_rules('first_name', 'Nombre', 'required|xss_clean');
 		$this->form_validation->set_rules('last_name', 'Apellido', 'required|xss_clean');
-		//$this->form_validation->set_rules('email', 'Correo electrónico', 'required|valid_email');
+		$this->form_validation->set_rules('email', 'Correo electrónico', 'required|valid_email');
 		$this->form_validation->set_rules('grupo', 'Grupo', 'required|xss_clean');
 		$this->form_validation->set_rules('phone1', 'Teléfono', 'required|xss_clean|min_length[5]|max_length[12]');
 		$this->form_validation->set_rules('company', 'Trabajo', 'required|xss_clean');
-		//$this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
-		//$this->form_validation->set_rules('password_confirm', 'Confirmar contraseña', 'required');
+		$this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
+		$this->form_validation->set_rules('password_confirm', 'Confirmar contraseña', 'required');
 
 		if ($this->form_validation->run() == true)
 		{

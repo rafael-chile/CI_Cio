@@ -106,16 +106,6 @@
                       //if the hidden value is not valid (is less than 1 since input field was not filled automatically), remove proper hidden input.
                       var i = 1;
 
-                      $(".hijos").each(
-                          function(){
-                              if( !$(this).val() ) {
-                                //$('#hijo_hidden' + i).remove();
-                              }
-                          }
-                          i++;
-
-                      )
-
 
                       $(".hijo_hidden").each(
                           function(){
@@ -124,7 +114,7 @@
                               }
                           }
                       )
-                      return false;
+                      return true;
                   });
             });
 
