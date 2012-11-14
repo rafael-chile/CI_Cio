@@ -38,8 +38,17 @@
 
 				$("#add-new-alumno").click(function() {
 								$.fancybox.open({
-									//href : '/cio/primaria',
 									href : '../alumnos/crear_alumno',
+									type : 'iframe',
+									width: 470,
+									'scrolling' : 'no'
+								});
+				});
+				
+
+				$("#add-new-circular").click(function() {
+								$.fancybox.open({
+									href : '../inter/crear_circular',
 									type : 'iframe',
 									width: 470,
 									'scrolling' : 'no'
@@ -72,149 +81,157 @@
 
 	<!--<div style="background-image:url(http://colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_01.jpg); background-repeat:no-repeat; width:100%; height:103px;">-->
 	<div style="background-image:url(../assets/img/header_notext.png); background-repeat:no-repeat; width:100%; height:103px;">
-</div>            
-<div id="menu_ppal"> 
+	</div>            
+	<div id="menu_ppal"> 
 
-        <table style="height: 46px;" id="menu" width="100%" height="40" border="0" cellpadding="0" cellspacing="0">
-            
-        </table>           
-</div>
+	        <table style="height: 46px;" id="menu" width="100%" height="40" border="0" cellpadding="0" cellspacing="0">
+	            
+	        </table>           
+	</div>
 
 
     	<div id="contenido" class="admin" style="text-align:justify">     
 
     		<div id="centro">
-    			Hola <b><?=$nombre; ?></b>.
+    			Hola <b><?=$nombre; ?></b>.<br/><br/>
     			
 
 	    		<div id="infoMessage"><?php echo $message;?></div>
 
-	    		<div class="row-fluid">
-			    	
-			    	<div class="span7">
-			    		
-			    		<h4>Usuarios</h4>
+	    		<div class="tabbable"> <!-- Only required for left/right tabs -->
+	    		  
+	    		  <ul class="nav nav-tabs">
+	    		    <li class="active"><a href="#tab1" data-toggle="tab">Usuarios</a></li>
+	    		    <li><a href="#tab2" data-toggle="tab">Alumnos</a></li>
+	    		    <li><a href="#tab3" data-toggle="tab">Circulares</a></li>
+	    		  </ul>
+	    		  
+	    		  <div class="tab-content">
+	    		    <div class="tab-pane span10 active" id="tab1">
+	    		      
+	    		      <p style="padding-left:10px;"><a id="add-new-user" href="javascript:;">Crear Nuevo Usuario</a></p>
 
-			    		<p style="padding-left:10px;"><a id="add-new-user" href="javascript:;">Crear Nuevo Usuario</a></p>
+	    		      <?php //var_dump($users);?>
 
-			    		<?php //var_dump($users);?>
+	    		      <table class="table table-bordered">
+	    		      	<tr>
+	    		      		<th>Nombre</th>
+	    		      		<th>Apellido</th>
+	    		      		<th>Correo</th>
+	    		      		<th>Telef&oacute;no</th>
+	    		      		<th>Grupos</th>
+	    		      		<th>Estado del usuario</th>
+	    		      		<th>Edici&oacute;n</th>
 
-			    		<table class="table table-bordered">
-			    			<tr>
-			    				<th>Nombre</th>
-			    				<th>Apellido</th>
-			    				<th>Correo</th>
-			    				<th>Telef&oacute;no</th>
-			    				<th>Grupos</th>
-			    				<th>Estado del usuario</th>
-			    				<th>Edici&oacute;n</th>
+	    		      	</tr>
+	    		      	<?php foreach ($users as $user):?>
+	    		      		<tr>
+	    		      			<td><?php echo $user->id."-".$user->first_name;?></td>
+	    		      			<td><?php echo $user->last_name;?></td>
+	    		      			<td><?php echo $user->email;?></td>
+	    		      			<td><?php echo $user->phone;?></td>
+	    		      			<td>
+	    		      				<?php foreach ($user->groups as $group):?>
+	    		      					<?php echo $group->name;?><br />
+	    		                      <?php endforeach?>
+	    		      			</td>
+	    		      			<?php $attributes = array('class' => 'various', 'data-fancybox-type' => 'iframe'); ?>
+	    		      			<?php //$attributes = array('' => ''); ?>
+	    		      			<td><?php echo ($user->active) ? anchor("inter/deactivate/".$user->id, 'Activo') : anchor("inter/activate/". $user->id, 'Inactivo');?></td>
+	    		      			<td><?php echo anchor("inter/edit_user/".$user->id, 'Editar', $attributes);?></td>
+	    		      		</tr>
+	    		      	<?php endforeach;?>
+	    		      </table>
 
-			    			</tr>
-			    			<?php foreach ($users as $user):?>
-			    				<tr>
-			    					<td><?php echo $user->id."-".$user->first_name;?></td>
-			    					<td><?php echo $user->last_name;?></td>
-			    					<td><?php echo $user->email;?></td>
-			    					<td><?php echo $user->phone;?></td>
-			    					<td>
-			    						<?php foreach ($user->groups as $group):?>
-			    							<?php echo $group->name;?><br />
-			    		                <?php endforeach?>
-			    					</td>
-			    					<?php $attributes = array('class' => 'various', 'data-fancybox-type' => 'iframe'); ?>
-			    					<?php //$attributes = array('' => ''); ?>
-			    					<td><?php echo ($user->active) ? anchor("inter/deactivate/".$user->id, 'Activo') : anchor("inter/activate/". $user->id, 'Inactivo');?></td>
-			    					<td><?php echo anchor("inter/edit_user/".$user->id, 'Editar', $attributes);?></td>
-			    				</tr>
-			    			<?php endforeach;?>
-			    		</table>
+	    		    </div>
+	    		    <div class="tab-pane span10" id="tab2">
 
-						
-	    		
-			    	</div>	<!-- span4 usuarios-->
-			    	<!--
-			    	<div class="span4">
-			    		<p style="padding-left:10px;">&nbsp;</p>
-			    		<p style="padding-left:10px;">&nbsp;</p>
-			    		<p style="padding-left:10px;">&nbsp;</p>
-			    		<table class="table table-bordered">
-			    			<tr>
-			    				<th>Materia</th>
-			    				<th>1er Parcial</th>
-			    				<th>2da Parcial</th>
-			    				<th>3er Parcial</th>
-			    				<th>4ta Parcial</th>
-			    			</tr>
-			    				<tr>
-			    					<td>Espa&ntilde;ol</td>
-			    					<td>10</td>
-			    					<td>9</td>
-			    					<td>8</td>
-			    					<td>8</td>
-			    				</tr>
+	    		      <p style="padding-left:10px;"><a id="add-new-alumno" href="javascript:;">Crear Nuevo Alumno</a></p>
 
-			    				<tr>
-			    					<td>Matem&aacute;ticas</td>
-			    					<td>10</td>
-			    					<td>9</td>
-			    					<td>8</td>
-			    					<td>8</td>
-			    				</tr>
-			    		</table>
-	    		
-			    	</div>-->  <!-- span4 calificaciones-->
+	    		      <table class="table table-bordered">
+	    		      	<tr>
+	    		      		<th>Nombre</th>
+	    		      		<th>Apellido Paterno</th>
+	    		      		<th>Apellido Materno</th>
+	    		      		<th>CURP</th>
+	    		      		<th>Fecha Nacimiento</th>
+	    		      		<th>Fecha Ingreso</th>
+	    		      		<th>Direcci&oacute;n</th>
+	    		      		<th>Tel&eacute;fono</th>
+	    		      		<th>Grado</th>
+	    		      		<th>Grupo</th>
+	    		      		<th>Editar</th>
+	    		      		<th>Eliminar</th>
+	    		      	</tr>
+	    		      	<?php foreach ($alumnos as $alumno):?>
+	    		      		<tr>
+	    		      			<td><?php echo $alumno->nombre;?></td>
+	    		      			<td><?php echo $alumno->apellido_pat;?></td>
+	    		      			<td><?php echo $alumno->apellido_mat;?></td>
+	    		      			<td><?php echo $alumno->curp;?></td>
+	    		      			<td><?php echo $alumno->fecha_nac;?></td>			    					
+	    		      			<td><?php echo $alumno->fecha_ingreso;?></td>			    					
+	    		      			<td><?php echo $alumno->direccion;?></td>			    					
+	    		      			<td><?php echo $alumno->telefono;?></td>			    					
+	    		      			<td><?php echo $alumno->grado;?></td>			    					
+	    		      			<td><?php echo $alumno->grupo;?></td>			    					
+	    		      			<!--<td><?php //echo anchor("", 'Editar');?></td>-->
+	    		      			<td><a class="various" data-fancybox-type="iframe" href="../alumnos/actualizar_alumno/<?php echo $alumno->id; ?>" >Editar</a></td>
+	    		      			<td><a href="../alumnos/eliminar_alumno/<?php echo $alumno->id; ?>" >Eliminar</a></td>
+	    		      			
+	    		      		</tr>
+	    		      	<?php endforeach;?>
+	    		      </table>
 
-				</div>	<!-- Row-->
+	    		    </div>
 
 
-				<div class="row-fluid">
-			    	
-			    	<div class="span10">
-			    		
-			    		<h4>Alumnos</h4>
+	    		    <div class="tab-pane span10" id="tab3">
 
-			    		<p style="padding-left:10px;"><a id="add-new-alumno" href="javascript:;">Crear Nuevo Alumno</a></p>
+	    		      	<p style="padding-left:10px;"><a id="add-new-circular" href="javascript:;">Crear Nueva Circular</a></p>
 
-			    		<table class="table table-bordered">
-			    			<tr>
-			    				<th>Nombre</th>
-			    				<th>Apellido Paterno</th>
-			    				<th>Apellido Materno</th>
-			    				<th>CURP</th>
-			    				<th>Fecha Nacimiento</th>
-			    				<th>Fecha Ingreso</th>
-			    				<th>Direcci&oacute;n</th>
-			    				<th>Tel&eacute;fono</th>
-			    				<th>Grado</th>
-			    				<th>Grupo</th>
-			    				<th>Editar</th>
-			    				<th>Eliminar</th>
-			    			</tr>
-			    			<?php foreach ($alumnos as $alumno):?>
-			    				<tr>
-			    					<td><?php echo $alumno->id ." - ". $alumno->nombre;?></td>
-			    					<td><?php echo $alumno->apellido_pat;?></td>
-			    					<td><?php echo $alumno->apellido_mat;?></td>
-			    					<td><?php echo $alumno->curp;?></td>
-			    					<td><?php echo $alumno->fecha_nac;?></td>			    					
-			    					<td><?php echo $alumno->fecha_ingreso;?></td>			    					
-			    					<td><?php echo $alumno->direccion;?></td>			    					
-			    					<td><?php echo $alumno->telefono;?></td>			    					
-			    					<td><?php echo $alumno->grado;?></td>			    					
-			    					<td><?php echo $alumno->grupo;?></td>			    					
-			    					<!--<td><?php //echo anchor("", 'Editar');?></td>-->
-			    					<td><a class="various" data-fancybox-type="iframe" href="../alumnos/actualizar_alumno/<?php echo $alumno->id; ?>" >Editar</a></td>
-			    					<td><a href="../alumnos/eliminar_alumno/<?php echo $alumno->id; ?>" >Eliminar</a></td>
-			    					
-			    				</tr>
-			    			<?php endforeach;?>
-			    		</table>
+	    		      	<table class="table table-bordered">
+	    		      		<tr>
+	    		      			<th>Nombre</th>
+	    		      			<th>Apellido Paterno</th>
+	    		      			<th>Apellido Materno</th>
+	    		      			<th>CURP</th>
+	    		      			<th>Fecha Nacimiento</th>
+	    		      			<th>Fecha Ingreso</th>
+	    		      			<th>Direcci&oacute;n</th>
+	    		      			<th>Tel&eacute;fono</th>
+	    		      			<th>Grado</th>
+	    		      			<th>Grupo</th>
+	    		      			<th>Editar</th>
+	    		      			<th>Eliminar</th>
+	    		      		</tr>
+	    		      		<?php foreach ($alumnos as $alumno):?>
+	    		      			<tr>
+	    		      				<td><?php echo $alumno->nombre;?></td>
+	    		      				<td><?php echo $alumno->apellido_pat;?></td>
+	    		      				<td><?php echo $alumno->apellido_mat;?></td>
+	    		      				<td><?php echo $alumno->curp;?></td>
+	    		      				<td><?php echo $alumno->fecha_nac;?></td>			    					
+	    		      				<td><?php echo $alumno->fecha_ingreso;?></td>			    					
+	    		      				<td><?php echo $alumno->direccion;?></td>			    					
+	    		      				<td><?php echo $alumno->telefono;?></td>			    					
+	    		      				<td><?php echo $alumno->grado;?></td>			    					
+	    		      				<td><?php echo $alumno->grupo;?></td>			    					
+	    		      				<!--<td><?php //echo anchor("", 'Editar');?></td>-->
+	    		      				<td><a class="various" data-fancybox-type="iframe" href="../alumnos/actualizar_alumno/<?php echo $alumno->id; ?>" >Editar</a></td>
+	    		      				<td><a href="../alumnos/eliminar_alumno/<?php echo $alumno->id; ?>" >Eliminar</a></td>
+	    		      				
+	    		      			</tr>
+	    		      		<?php endforeach;?>
+	    		      	</table>
+    		      
 
-			    	
-			    	
-			    	</div>	<!-- span4 usuarios-->
+	    		    </div>
+	    		    
+	    		  </div>
 
-				</div>	<!-- Row-->
+	    		</div>
+
 
 			</div>		
 	

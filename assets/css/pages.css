@@ -52,6 +52,9 @@
     #contenido.cionet       { height:483px;}
     #contenido.contactos    { height:500px; }
     #contenido.admin        { height:100%; font-size: 0.8em;}
+    .tab-content .active    { font-size: 1.1em;}
+    
+    
 
     #centro                 {padding:25px 15px 15px 35px;}
     
@@ -64,6 +67,14 @@
     li a {color:#FFFFFF; text-decoration:none;}
 
     .active{color:#FF0000; font-size:14px;}
+
+    /*Estilos para los tabs en admin*/
+
+    .tabbable li a {color:#08C; text-decoration:none; font-size:14px;}
+    .tabbable li.active{color:#FF0000;}
+    .tabbable .tab-content .active{color:#555;}
+
+
 
     .mimagen { vertical-align: top; float: left; margin-right:18px; } 
     
