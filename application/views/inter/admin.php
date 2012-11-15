@@ -192,34 +192,25 @@
 
 	    		      	<table class="table table-bordered">
 	    		      		<tr>
-	    		      			<th>Nombre</th>
-	    		      			<th>Apellido Paterno</th>
-	    		      			<th>Apellido Materno</th>
-	    		      			<th>CURP</th>
-	    		      			<th>Fecha Nacimiento</th>
-	    		      			<th>Fecha Ingreso</th>
-	    		      			<th>Direcci&oacute;n</th>
-	    		      			<th>Tel&eacute;fono</th>
-	    		      			<th>Grado</th>
-	    		      			<th>Grupo</th>
+	    		      			<th>T&iacute;tulo</th>
+	    		      			<th>A&ntilde;</th>
+	    		      			<th>N&uacute;mero</th>
+	    		      			<th>Fecha</th>
+	    		      			<th>Asunto</th>
+	    		      			<th>Contenido</th>
 	    		      			<th>Editar</th>
 	    		      			<th>Eliminar</th>
 	    		      		</tr>
-	    		      		<?php foreach ($alumnos as $alumno):?>
+	    		      		<?php foreach ($circulares as $circular):?>
 	    		      			<tr>
-	    		      				<td><?php echo $alumno->nombre;?></td>
-	    		      				<td><?php echo $alumno->apellido_pat;?></td>
-	    		      				<td><?php echo $alumno->apellido_mat;?></td>
-	    		      				<td><?php echo $alumno->curp;?></td>
-	    		      				<td><?php echo $alumno->fecha_nac;?></td>			    					
-	    		      				<td><?php echo $alumno->fecha_ingreso;?></td>			    					
-	    		      				<td><?php echo $alumno->direccion;?></td>			    					
-	    		      				<td><?php echo $alumno->telefono;?></td>			    					
-	    		      				<td><?php echo $alumno->grado;?></td>			    					
-	    		      				<td><?php echo $alumno->grupo;?></td>			    					
-	    		      				<!--<td><?php //echo anchor("", 'Editar');?></td>-->
-	    		      				<td><a class="various" data-fancybox-type="iframe" href="../alumnos/actualizar_alumno/<?php echo $alumno->id; ?>" >Editar</a></td>
-	    		      				<td><a href="../alumnos/eliminar_alumno/<?php echo $alumno->id; ?>" >Eliminar</a></td>
+	    		      				<td><?php echo $circular->titulo;?></td>
+	    		      				<td><?php echo $circular->anio;?></td>
+	    		      				<td><?php echo $circular->numero;?></td>
+	    		      				<td><?php echo $circular->fecha;?></td>
+	    		      				<td><?php echo $circular->asunto;?></td>			    					
+	    		      				<td><?php echo $circular->contenido;?></td>			    					
+	    		      				<td><a class="various" data-fancybox-type="iframe" href="#/<?php echo $alumno->id; ?>" >Editar</a></td>
+	    		      				<td><a href="#/<?php echo $alumno->id; ?>" >Eliminar</a></td>
 	    		      				
 	    		      			</tr>
 	    		      		<?php endforeach;?>

@@ -220,6 +220,8 @@ class Inter extends CI_Controller {
 
 			//Enlistar todos los alumnos
 			$this->data['alumnos'] = $this->inter_model->get_all();
+
+			$this->data['circulares'] = $this->inter_model->get_all_circulares();
 			
 			$this->load->view('inter/admin', $this->data);
 
@@ -778,7 +780,7 @@ class Inter extends CI_Controller {
 	//create new "circular"
 	function crear_circular()
 	{
-		$this->data['title'] = "Create User";
+		$this->data['title'] = "Crear Circular";
 
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
 		{
@@ -788,125 +790,92 @@ class Inter extends CI_Controller {
 		
 
 		//validate form input
-		$this->form_validation->set_rules('first_name', 'Nombre', 'required|xss_clean');
-		$this->form_validation->set_rules('last_name', 'Apellido', 'required|xss_clean');
-		$this->form_validation->set_rules('email', 'Correo electrónico', 'required|valid_email');
-		$this->form_validation->set_rules('grupo', 'Grupo', 'required|xss_clean');
-		$this->form_validation->set_rules('phone1', 'Teléfono', 'required|xss_clean|min_length[5]|max_length[12]');
-		$this->form_validation->set_rules('company', 'Trabajo', 'required|xss_clean');
-		$this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
-		$this->form_validation->set_rules('password_confirm', 'Confirmar contraseña', 'required');
+		$this->form_validation->set_rules('titulo', 'Título', 'required|xss_clean');
+		$this->form_validation->set_rules('anio', 'Año', 'required|xss_clean');
+		$this->form_validation->set_rules('numero', 'Número', 'required|xss_clean');
+		$this->form_validation->set_rules('fecha', 'Fecha', 'required|xss_clean');
+		$this->form_validation->set_rules('asunto', 'Asunto', 'required|xss_clean');
+		$this->form_validation->set_rules('contenido_circular', 'Contenido', 'required|xss_clean');
+		
 
 		if ($this->form_validation->run() == true)
 		{
-			$username = strtolower($this->input->post('first_name')) . ' ' . strtolower($this->input->post('last_name'));
-			$email    = $this->input->post('email');
-			$password = $this->input->post('password');
-			//$grupo    = $this->input->post('grupo');
-			$grupo = array($this->input->post('grupo'));
-
-			$additional_data = array(
-				'first_name' => $this->input->post('first_name'),
-				'last_name'  => $this->input->post('last_name'),
-				'company'    => $this->input->post('company'),
-				'phone'      => $this->input->post('phone1'),
-			);
-
+			$titulo   	= $this->input->post('titulo');
+			$anio    	= $this->input->post('anio');
+			$numero 	= $this->input->post('numero');
+			$fecha    	= $this->input->post('fecha');
+			$asunto 	= $this->input->post('asunto');
+			$contenido_circular 	= $this->input->post('contenido_circular');
 		}
 
-		if ($this->form_validation->run() == true && $id_user=($this->ion_auth->register($username, $password, $email, $additional_data, $grupo)))
+		
+		if ($this->form_validation->run() == true && $this->inter_model->add_circular($titulo,$anio,$numero,$fecha,$asunto,$contenido_circular))
 		{ 
-			//Read POST
-			//print_r($this->input->post('hijo_hidden'));
-			$hijos_info = $this->input->post('hijo_hidden');
-
-			if($this->inter_model->add_alumno_to_padre($id_user,$hijos_info)){
-				echo "Se agregaron los ids";
-			}
-
+			
 			//check to see if we are creating the user
 			//redirect them back to the admin page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
 			//redirect("inter", 'refresh');			
-			$data['action']='nuevo_usuario';
+			$data['action']='nuevo_circular';
 			$this->load->view('templates/messages',$data);
 		}
 		else
 		{ 
 			
-			
-
-
 			//display the create user form
 			//set the flash data error message if there is one
 			$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
-			$this->data['first_name'] = array(
-				'name'  => 'first_name',
-				'id'    => 'first_name',
+			$titulo   				= $this->input->post('titulo');
+			$anio    				= $this->input->post('anio');
+			$numero 				= $this->input->post('numero');
+			$fecha    				= $this->input->post('fecha');
+			$asunto 				= $this->input->post('asunto');
+			$contenido_circular 	= $this->input->post('contenido_circular');
+
+			$this->data['titulo'] = array(
+				'name'  => 'titulo',
+				'id'    => 'titulo',
 				'type'  => 'text',
-				'value' => $this->form_validation->set_value('first_name'),
+				'value' => $this->form_validation->set_value('titulo'),
 			);
-			$this->data['last_name'] = array(
-				'name'  => 'last_name',
-				'id'    => 'last_name',
+			$this->data['anio'] = array(
+				'name'  => 'anio',
+				'id'    => 'anio',
 				'type'  => 'text',
-				'value' => $this->form_validation->set_value('last_name'),
+				'value' => $this->form_validation->set_value('anio'),
 			);
-			$this->data['email'] = array(
-				'name'  => 'email',
-				'id'    => 'email',
+			$this->data['numero'] = array(
+				'name'  => 'numero',
+				'id'    => 'numero',
 				'type'  => 'text',
-				'value' => $this->form_validation->set_value('email'),
+				'value' => $this->form_validation->set_value('numero'),
 			);
 
-			$this->data['grupo'] = array(
-				'name'  => 'grupo',
-				'id'    => 'grupo',
+			$this->data['fecha'] = array(
+				'name'  => 'fecha',
+				'id'    => 'fecha',
 				'type'  => 'text',
-				'value' => $this->form_validation->set_value('grupo'),
+				'value' => $this->form_validation->set_value('fecha'),
 			);
 
-			$this->data['company'] = array(
-				'name'  => 'company',
-				'id'    => 'company',
+			$this->data['asunto'] = array(
+				'name'  => 'asunto',
+				'id'    => 'asunto',
 				'type'  => 'text',
-				'value' => $this->form_validation->set_value('company'),
+				'value' => $this->form_validation->set_value('asunto'),
 			);
-			$this->data['phone1'] = array(
-				'name'  => 'phone1',
-				'id'    => 'phone1',
+			$this->data['contenido_circular'] = array(
+				'name'  => 'contenido_circular',
+				'id'    => 'contenido_circular',
 				'type'  => 'text',
-				'value' => $this->form_validation->set_value('phone1'),
+				'value' => $this->form_validation->set_value('contenido_circular'),
 			);
-			/*$this->data['phone2'] = array(
-				'name'  => 'phone2',
-				'id'    => 'phone2',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('phone2'),
-			);
-			$this->data['phone3'] = array(
-				'name'  => 'phone3',
-				'id'    => 'phone3',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('phone3'),
-			);*/
-			$this->data['password'] = array(
-				'name'  => 'password',
-				'id'    => 'password',
-				'type'  => 'password',
-				'value' => $this->form_validation->set_value('password'),
-			);
-			$this->data['password_confirm'] = array(
-				'name'  => 'password_confirm',
-				'id'    => 'password_confirm',
-				'type'  => 'password',
-				'value' => $this->form_validation->set_value('password_confirm'),
-			);
+		    
 
-			$this->data['estudiante_bd'] = $this->inter_model->get_user_for_ajax();
+			//$this->data['estudiante_bd'] = $this->inter_model->get_user_for_ajax();
 
-			$this->load->view('inter/create_user', $this->data);
+			$this->load->view('inter/crear_circular', $this->data);
 		}
 	}
 

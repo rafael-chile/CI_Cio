@@ -52,6 +52,9 @@
 	  						break;
 	  case 'usuario_editado': 	
 	  						echo '<p>El usuario ha sido actualizado.</p>';
+	  						break;
+	  case 'nuevo_circular': 	
+	  						echo '<p>Se agreg&oacute; una nueva circular.</p>';
 	  						break; 
 	 }
 

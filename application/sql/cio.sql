@@ -203,3 +203,31 @@ INSERT INTO `alumnos_users` (`id`, `alumno_id`, `user_id`) VALUES
 (2, 2, 6),
 (3, 26, 5),
 (4, 27, 6);
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `circulares`
+--
+
+CREATE TABLE IF NOT EXISTS `circulares` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(80) COLLATE utf8_bin NOT NULL,
+  `numero` char(3) COLLATE utf8_bin NOT NULL,
+  `fecha` date NOT NULL,
+  `asunto` varchar(120) COLLATE utf8_bin NOT NULL,
+  `contenido` text COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3;
+
+--
+-- Dumping data for table `circulares`
+--
+
+INSERT INTO `circulares` (`id`, `titulo`, `numero`, `fecha`, `asunto`, `contenido`) VALUES
+(1, 'Circular Uno', '001', CURDATE(), 'Bienvenida1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis luctus eleifend ultrices. Sed imperdiet condimentum tortor eget pulvinar. Integer volutpat diam justo, a feugiat ante. Donec vel nunc at lorem mattis gravida ac eget nunc. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'),
+(2, 'Circular Dos', '002', CURDATE(), 'Bienvenida2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis luctus eleifend ultrices. Sed imperdiet condimentum tortor eget pulvinar. Integer volutpat diam justo, a feugiat ante. Donec vel nunc at lorem mattis gravida ac eget nunc.'),
+(3, 'Circular Tres', '003', CURDATE(), 'Bienvenida3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis luctus eleifend ultrices. Sed imperdiet condimentum tortor eget pulvinar. Integer volutpat diam justo, a feugiat ante.'),
+(4, 'Circular Cuatro', '004', CURDATE(), 'Bienvenida4', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis luctus eleifend ultrices. Sed imperdiet condimentum tortor eget pulvinar.');

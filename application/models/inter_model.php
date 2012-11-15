@@ -89,6 +89,22 @@ class Inter_model extends CI_Model
 
 
 	/**
+	 **/
+	public function get_all_circulares()
+	{
+		$query = $this->db->get('circulares');
+
+		if ($query->num_rows() >= 1)
+		{
+			return $query->result();
+		}
+		else{
+			return FALSE;
+		}
+	}
+
+
+	/**
 	 * Add
 	 *
 	 * @return bool
@@ -278,6 +294,30 @@ class Inter_model extends CI_Model
 		
 			return false;
 		}*/
+	}
+
+
+	/**
+	 * add_circular
+	 *
+	 * @return bool
+	 * @author Mathew
+	 **/
+	public function add_circular($titulo,$anio,$numero,$fecha,$asunto,$contenido)
+	{
+		
+		$this->db->set('titulo', $titulo);
+		$this->db->set('anio', $anio);
+		$this->db->set('numero', $numero);
+		$this->db->set('fecha', $fecha);
+		$this->db->set('asunto', $asunto);
+		$this->db->set('contenido', $contenido);
+		
+		if ($this->db->insert('circulares')) {
+				return true;
+			}	
+
+		
 	}
 
 	/**
