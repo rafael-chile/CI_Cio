@@ -42,7 +42,7 @@
 	  						echo '<p>El usuario ha sido agregado correctamente.</p>';
 	  						break;                
 	  case 'alumno_eliminado': 		
-	  						echo '<p>El alumno ha sido eliminado.</p>';
+	  						echo '<p>El alumno ha sido eliminado correctamente.</p>';
 	  						break; 
 	  case 'alumno_no_eliminado': 	
 	  						echo '<p>El alumno NO se ha sido eliminado.</p>';
