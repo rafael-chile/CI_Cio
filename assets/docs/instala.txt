@@ -1,0 +1,21 @@
+<div style="min-width:700px;">
+	<p style="font-weight:700">Instalaciones</p><br/>
+	
+	<ul>
+		<li>&bull;Parque ecológico cio con 5,000 m2</li><br/>
+		<li>&bull;Auditorio con capacidad para 600 personas
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li><br/>
+		<li>&bull;Alberca</li><br/>
+		<li>&bull;Salones de computación</li><br/>
+		<li>&bull;Salón de música y biblioteca</li><br/>
+		<li>&bull;Cancha de Futbol</li><br/>
+	</ul>
+	
+	<img src="assets/images/collage.jpg">	
+
+</div>
+
+
+
+

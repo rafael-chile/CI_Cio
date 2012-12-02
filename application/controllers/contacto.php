@@ -12,10 +12,12 @@ class Contacto extends CI_Controller {
 		
 		$data['title']='Contacto';
 
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/topmenu', $data);
-		$this->load->view('contacto', $data);
-		$this->load->view('templates/footer', $data);
+		//$this->load->view('templates/header', $data);
+		//$this->load->view('templates/topmenu', $data);
+		//$this->load->view('contacto', $data);
+		//$this->load->view('templates/footer', $data);
+
+		$this->load->view('contacto');
 	}
 }
 

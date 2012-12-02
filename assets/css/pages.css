@@ -22,7 +22,7 @@
 	
 	#footer { background-image:url(http://www.colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_15.jpg); }*/
 
-    * {font-family:Verdana, Arial, Helvetica, sans-serif;}
+    /* {font-family:Verdana, Arial, Helvetica, sans-serif;}*/
 
     body        {  background-image:url(http://colegiociodemexico.edu.mx/test_new/img/bg.jpg);
                     background-repeat:repeat-x;
@@ -30,8 +30,8 @@
                     margin:0px;
                     padding:0px;
                     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-                    font:14px/1.6 Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
-                    color:#333;
+                    /*font:14px/1.6 Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
+                    color:#333;*/
                     
                 }
 
@@ -43,13 +43,13 @@
                 
                 }
             
-    #contenedor { width:895px; }
+    #contenedor             { width:895px; }
     
     #contenido              { height:916px; background-color:#FFF; margin:0px; padding:0px; margin-top: -6px;}
     #contenido.conocenos    { height:483px; }
     #contenido.kinder       { height:550px; }
     #contenido.primaria     { height:483px; }
-    #contenido.cionet       { height:483px;}
+    #contenido.cionet       { height:483px; }
     #contenido.contactos    { height:500px; }
     #contenido.admin        { height:100%; font-size: 0.8em;}
     .tab-content .active    { font-size: 1.1em;}
@@ -113,7 +113,7 @@
             padding: 45px 45px 20px;
             margin-top:30px;
             background-color: white;
-            box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+            box-shadow: 0px 5px 10px black, 0 0 0 10px #96FD89 inset;
             height: 200px;
         }
 
@@ -138,7 +138,7 @@
             resize: none;
             box-shadow:0 0 0 3px #EEF5F7;
             margin: 5px 0;
-            /*height: 30px;*/
+            height: 15px;
         }
 
         .form_cionet input[type='text']:focus, input[type='password']:focus{
@@ -192,27 +192,27 @@
         
         .contacto{
             width:500px;
+            height: 300px;
             border: 1px solid #CED5D7;
             border-radius: 6px;
             /*padding: 45px 45px 20px;*/
-            padding: 45px 45px 20px 20px;
+            padding: 45px 45px 20px;
             margin-top:30px;
             background-color: white;
-            box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
-            height: 270px;
+            box-shadow: 0px 5px 10px black, 0 0 0 10px #96FD89 inset;
         }
 
         .contacto label{
             display: block;
-            margin-left: 60px;
+            margin-left: 20px;
             #margin-left: 0px;
             text-align: left;
             font-weight: bold;
             font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-            font-size: 105%;
+            font-size: 14px;
             float: left;
         }
-        
+
         .contacto input[type='text'], .contacto input[type='password']{
             padding: 7px 6px;
             width: 200px;

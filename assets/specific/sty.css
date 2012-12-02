@@ -55,22 +55,23 @@
         padding: 45px 45px 20px;
         margin-top:30px;
         background-color: white;
-        box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+        box-shadow: 0px 5px 10px #000000, 0 0 0 10px #96FD89 inset;
         height: 200px;
     }
 
     .contacto label{
         display: block;
-        margin-left: 20px;
+        margin-left: 50px;
         #margin-left: 0px;
         text-align: left;
         font-weight: bold;
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 105%;
+        width: 180px;
     }
     
     .contacto div{
-        margin-bottom: 15px;
+        margin-bottom: 150px;
     }
     
     .contacto input[type='text'], .contacto input[type='password']{
@@ -79,7 +80,7 @@
         border: 1px solid #CED5D7;
         resize: none;
         box-shadow:0 0 0 3px #EEF5F7;
-        margin: 5px 0;
+        margin: 5px 0px;
         height: 30px;
     }
 
@@ -92,7 +93,7 @@
         border: 1px solid #CED5D7;
         box-shadow:0 0 0 3px #EEF5F7;
         float: right;
-        margin-right: 20px;
+        margin-right: 35px;
         padding: 8px 16px;
         font-weight: bold;
         text-shadow: 1px 1px 0px white;

@@ -1,0 +1,33 @@
+<div style="max-width:793px; background-image:url(images/act_val_pri.jpg); background-repeat:no-repeat; background-position:right;">
+
+<p style="font-weight:700">Actividades de valor agregado para Primaria:</p> 
+
+<p>En Colegio CIO de México contamos con las siguientes actividades de valor agregado:</p><br/>
+	<ul>
+		<li>&nbsp;&nbsp;&nbsp;&bull;Inglés interactivo por niveles</li><br/>
+		<li>&nbsp;&nbsp;&nbsp;&bull;Aquaerobics</li><br/>
+		<li>&nbsp;&nbsp;&nbsp;&bull;Robótica</li><br/>
+		<li>&nbsp;&nbsp;&nbsp;&bull;El pequeño Gourmet</li><br/>
+		<li>&nbsp;&nbsp;&nbsp;&bull;Platicas externas</li><br/>
+		<li>&nbsp;&nbsp;&nbsp;&bull;Valores</li><br/>
+		<li>&nbsp;&nbsp;&nbsp;&bull;Sudoku</li><br/>
+		<li>&nbsp;&nbsp;&nbsp;&bull;Actividades vivénciales</li><br/>
+		<li>&nbsp;&nbsp;&nbsp;&bull;Juegos de destreza</li><br/>
+		<li>&nbsp;&nbsp;&nbsp;&bull;Baile</li><br/>
+		<li>&nbsp;&nbsp;&nbsp;&bull;Teatro</li><br/>
+		<li>&nbsp;&nbsp;&nbsp;&bull;Bordado</li><br/>
+		<li>&nbsp;&nbsp;&nbsp;&bull;Tejido </li><br/>
+		<li>&nbsp;&nbsp;&nbsp;&bull;Valores, buenas costumbres y más</li><br/>
+	</ul>
+
+<p>Entre más de 40 talleres de valor agregado que van cambiando mes con mes.</p>
+</div>
+
+
+
+
+
+
+
+
+

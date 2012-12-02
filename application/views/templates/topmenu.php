@@ -1,6 +1,14 @@
-<div style="background-image:url(http://colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_01.jpg); width:895px; height:103px; text-align:right; color:#EEE;">
-"Donde los niños disfrutan aprender" &nbsp;&nbsp;
-</div>            
+<link id="page_favicon" href="images/favicon.ico" rel="icon" type="image/x-icon" />
+<div style="background-image:url(http://colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_01.jpg); 
+width:895px; 
+height:103px; 
+text-align:right; 
+color:#3C0; 
+font-weight:bold; 
+font-size:19px; 
+font-family:Verdana !important" >
+
+"Donde los niños disfrutan aprender" &nbsp;&nbsp;</div>              
 <div id="menu_ppal"> 
         <table id="menu" width="895" height="40" border="0" cellpadding="0" cellspacing="0">
             <tr>                           
