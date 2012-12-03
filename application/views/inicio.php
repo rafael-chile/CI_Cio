@@ -3,23 +3,23 @@
                 <div id="wrapper" >
                 <div class="slider-wrapper theme-dark">
                     <div id="slider" class="nivoSlider">
-                        <img src="http://colegiociodemexico.edu.mx/test_new/images/web cio.jpg" data-thumb="http://colegiociodemexico.edu.mx/test_new/images/web cio.jpg" alt="" />
+                        <img src="<?php echo base_url().'assets/';?>images/web cio.jpg" data-thumb="<?php echo base_url().'assets/';?>images/web cio.jpg" alt="" />
                         <!-- <img src="images/DSCF0116.jpg" data-thumb="images/DSCF0116.jpg" alt="" /> -->
-                        <img src="http://colegiociodemexico.edu.mx/test_new/images/DSCF0153.jpg" data-thumb="http://colegiociodemexico.edu.mx/test_new/images/DSCF0153.jpg" alt="" data-transition="slideInLeft" />
-                        <img src="http://colegiociodemexico.edu.mx/test_new/images/P1000264.jpg" data-thumb="http://colegiociodemexico.edu.mx/test_new/images/P1000264.jpg" alt="" />
-                        <img src="http://colegiociodemexico.edu.mx/test_new/images/P1000155.jpg" data-thumb="http://colegiociodemexico.edu.mx/test_new/images/P1000155.jpg" alt="" />
-                        <!--<img src="http://colegiociodemexico.edu.mx/test_new/images/Maquetacion_09.jpg" data-thumb="http://colegiociodemexico.edu.mx/test_new/images/Maquetacion_09.jpg" alt="" />-->
-                        <!--<img src="http://colegiociodemexico.edu.mx/test_new/images/P1010461.JPG" data-thumb="http://colegiociodemexico.edu.mx/test_new/images/P1010461.JPG" alt="" />-->
-                        <img src="http://colegiociodemexico.edu.mx/test_new/images/P1010465.JPG" data-thumb="http://colegiociodemexico.edu.mx/test_new/images/P1010465.JPG" alt="" />
-                        <img src="http://colegiociodemexico.edu.mx/test_new/images/P1010619.JPG" data-thumb="http://colegiociodemexico.edu.mx/test_new/images/P1010619.JPG" alt="" />
-                        <img src="http://colegiociodemexico.edu.mx/test_new/images/P1010786.JPG" data-thumb="http://colegiociodemexico.edu.mx/test_new/images/P1010786.JPG" alt="" />
-                        <img src="http://colegiociodemexico.edu.mx/test_new/images/P1010825.JPG" data-thumb="http://colegiociodemexico.edu.mx/test_new/images/P1010825.JPG" alt="" />        
+                        <img src="<?php echo base_url().'assets/';?>images/DSCF0153.jpg" data-thumb="<?php echo base_url().'assets/';?>images/DSCF0153.jpg" alt="" data-transition="slideInLeft" />
+                        <img src="<?php echo base_url().'assets/';?>images/P1000264.jpg" data-thumb="<?php echo base_url().'assets/';?>images/P1000264.jpg" alt="" />
+                        <img src="<?php echo base_url().'assets/';?>images/P1000155.jpg" data-thumb="<?php echo base_url().'assets/';?>images/P1000155.jpg" alt="" />
+                        <!--<img src="<?php echo base_url().'assets/';?>images/Maquetacion_09.jpg" data-thumb="<?php echo base_url().'assets/';?>images/Maquetacion_09.jpg" alt="" />-->
+                        <!--<img src="<?php echo base_url().'assets/';?>images/P1010461.JPG" data-thumb="<?php echo base_url().'assets/';?>images/P1010461.JPG" alt="" />-->
+                        <img src="<?php echo base_url().'assets/';?>images/P1010465.JPG" data-thumb="<?php echo base_url().'assets/';?>images/P1010465.JPG" alt="" />
+                        <img src="<?php echo base_url().'assets/';?>images/P1010619.JPG" data-thumb="<?php echo base_url().'assets/';?>images/P1010619.JPG" alt="" />
+                        <img src="<?php echo base_url().'assets/';?>images/P1010786.JPG" data-thumb="<?php echo base_url().'assets/';?>images/P1010786.JPG" alt="" />
+                        <img src="<?php echo base_url().'assets/';?>images/P1010825.JPG" data-thumb="<?php echo base_url().'assets/';?>images/P1010825.JPG" alt="" />        
                     </div>
                 </div>        
             	</div>
             </div>            
             <div style="height:172px; text-align:left; font-size:20px">
-                <div style="float:left; width:298px; height:172px; background-image:url(http://colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_10.jpg); color:#FFF;" id="cont1"> 
+                <div style="float:left; width:298px; height:172px; background-image:url(<?php echo base_url().'assets/';?>imagenes/Maquetacion_10.jpg); color:#FFF;" id="cont1"> 
                     <br/><br/>
                     <img src="<?php echo base_url().'assets/';?>images/ingreso.png" style="vertical-align: top; float: left; margin:0 25px 25px 30px;">
                     <a href="ingreso/kinder" style="color:#FFF" target="_blank">
@@ -29,14 +29,14 @@
                         Ingreso Primaria<br/>
                     </a>
                 </div>       
-                <div style="float:left; width:298px; height:172px; background-image:url(http://colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_11.jpg); color:#FFF;" id="cont2"> 
+                <div style="float:left; width:298px; height:172px; background-image:url(<?php echo base_url().'assets/';?>imagenes/Maquetacion_11.jpg); color:#FFF;" id="cont2"> 
                     <a class="fancybox fancybox.ajax" href="<?php echo base_url().'assets/docs/';?>instala.txt" style="color:#FFF">
                         <br/><br/>
                         <img src="<?php echo base_url().'assets/';?>images/instala.png" style="vertical-align: top; float: left; margin:0 25px 25px 30px;">
                         Instalaciones<br/>
                     </a>
                 </div>
-                <div style="float:left; width:299px; height:172px; background-image:url(http://colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_12.jpg); color:#FFF;" id="cont3">
+                <div style="float:left; width:299px; height:172px; background-image:url(<?php echo base_url().'assets/';?>imagenes/Maquetacion_12.jpg); color:#FFF;" id="cont3">
                     <a href="cionet" style="color:#FFF">
                         <br/><br/>
                         <img src="<?php echo base_url().'assets/';?>images/cionet.png" style="vertical-align:top; float: left; margin:0px 25px 25px 30px;">
@@ -69,7 +69,7 @@
                                 
                     <p><a class="fancybox fancybox.ajax" href="<?php echo base_url().'assets/docs/';?>noticia1.txt" style="color:#333">- MÉXICO ES UN PAÍS QUE ESTÁ LLAMADO A SER EXITOSO: CÓRDOVA VILLALOBOS.</a></p> <br/>
                     <p><a class="fancybox fancybox.ajax" href="<?php echo base_url().'assets/docs/';?>noticia2.txt" style="color:#333">- EL TITULAR DE LA SEP INAUGURÓ LA PRIMERA REUNIÓN REGIONAL PARA IMPULSAR UNA NUEVA CULTURA DE SALUD DESDE LA ESCUELA.</a></p> <br/>
-                    <a class="fancybox-effects-d" href="http://colegiociodemexico.edu.mx/test_new/images/calendario.jpg" title="Calendario SEP 2012 - 2013"><img src="http://colegiociodemexico.edu.mx/test_new/images/calendario.png" /></a>        
+                    <a class="fancybox-effects-d" href="<?php echo base_url().'assets/';?>images/calendario.jpg" title="Calendario SEP 2012 - 2013"><img src="<?php echo base_url().'assets/';?>images/calendario.png" /></a>        
                 </div>            
             </div>             
         </div>                    

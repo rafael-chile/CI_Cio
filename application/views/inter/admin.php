@@ -8,18 +8,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	
-	<link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css">
-	<link type="text/css" rel="stylesheet" href="../assets/css/bootstrap-responsive.min.css">
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/';?>css/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/';?>css/bootstrap-responsive.min.css">
 
-	<link type="text/css" rel="stylesheet" href="../assets/css/pages.css">
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/';?>css/pages.css">
 	
 	<!-- Add jQuery library -->
-	<script type="text/javascript" src="../assets/specific/source_fancy/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url().'assets/';?>specific/source_fancy/jquery-1.8.2.min.js"></script>
 	<!-- Add fancyBox main JS and CSS files -->
-	<script type="text/javascript" src="../assets/specific/source_fancy/jquery.fancybox.js?v=2.1.1"></script>
-	<link rel="stylesheet" type="text/css" href="../assets/specific/source_fancy/jquery.fancybox.css?v=2.1.1" media="screen" />
+	<script type="text/javascript" src="<?php echo base_url().'assets/';?>specific/source_fancy/jquery.fancybox.js?v=2.1.1"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/';?>specific/source_fancy/jquery.fancybox.css?v=2.1.1" media="screen" />
 	<!-- Add Media helper (this is optional) -->
-	<script type="text/javascript" src="../assets/specific/source_fancy/helpers/jquery.fancybox-media.js?v=1.0.4"></script>
+	<script type="text/javascript" src="<?php echo base_url().'assets/';?>specific/source_fancy/helpers/jquery.fancybox-media.js?v=1.0.4"></script>
 
 	<script type="text/javascript">
 			$(document).ready(function() {
@@ -29,7 +29,7 @@
 				$("#add-new-user").click(function() {
 								$.fancybox.open({
 									//href : '/cio/primaria',
-									href : '../inter/create_user',
+									href : '/inter/create_user',
 									type : 'iframe',
 									width: 470,
 									'scrolling' : 'no'
@@ -38,7 +38,7 @@
 
 				$("#add-new-alumno").click(function() {
 								$.fancybox.open({
-									href : '../alumnos/crear_alumno',
+									href : '/alumnos/crear_alumno',
 									type : 'iframe',
 									width: 470,
 									'scrolling' : 'no'
@@ -48,7 +48,7 @@
 
 				$("#add-new-circular").click(function() {
 								$.fancybox.open({
-									href : '../inter/crear_circular',
+									href : '/inter/crear_circular',
 									type : 'iframe',
 									width: 470,
 									'scrolling' : 'no'
@@ -80,7 +80,7 @@
 <div id="contenedor_admin">
 
 	<!--<div style="background-image:url(http://colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_01.jpg); background-repeat:no-repeat; width:100%; height:103px;">-->
-	<div style="background-image:url(../assets/img/header_notext.png); background-repeat:no-repeat; width:100%; height:103px;">
+	<div style="background-image:url(<?php echo base_url().'assets/';?>img/header_notext.png); background-repeat:no-repeat; width:100%; height:103px;">
 	</div>            
 	<div id="menu_ppal"> 
 
@@ -230,8 +230,8 @@
 		
 </div> <!-- id="contenedor"-->
 </center>
-<script src="../assets/js/bootstrap.min.js"></script>
-<script src="../assets/js/modernizr.js"></script>
+<script src="<?php echo base_url().'assets/';?>js/bootstrap.min.js"></script>
+<script src="<?php echo base_url().'assets/';?>js/modernizr.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
      
