@@ -10,9 +10,9 @@
 			padding:0px;
         }
 	
-	.cionet {background-image:url(http://www.colegiociodemexico.edu.mx/test_new/img/bg.jpg);}
+	.cionet {background-image:url(../../assets/img/bg.jpg);}
 
-	.header	{background-image:url(http://www.colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_15.jpg);}
+	.header	{background-image:url(../../assets/imagenes/Maquetacion_15.jpg);}
 
 	img { border:0px;}
 
@@ -20,7 +20,7 @@
 	
 	#contenido { height:483px; background-color:#FFF; margin:0px; padding:0px;}
 	
-	#footer { background-image:url(http://www.colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_15.jpg); }
+	#footer { background-image:url(../../assets/imagenes/Maquetacion_15.jpg); }
 
 	/*
 	Agregar a los footers fuera de Inter*/

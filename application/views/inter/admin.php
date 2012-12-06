@@ -29,7 +29,7 @@
 				$("#add-new-user").click(function() {
 								$.fancybox.open({
 									//href : '/cio/primaria',
-									href : '/inter/create_user',
+									href : '../inter/create_user',
 									type : 'iframe',
 									width: 470,
 									'scrolling' : 'no'
@@ -38,7 +38,7 @@
 
 				$("#add-new-alumno").click(function() {
 								$.fancybox.open({
-									href : '/alumnos/crear_alumno',
+									href : '../alumnos/crear_alumno',
 									type : 'iframe',
 									width: 470,
 									'scrolling' : 'no'
@@ -48,7 +48,7 @@
 
 				$("#add-new-circular").click(function() {
 								$.fancybox.open({
-									href : '/inter/crear_circular',
+									href : '../inter/crear_circular',
 									type : 'iframe',
 									width: 470,
 									'scrolling' : 'no'

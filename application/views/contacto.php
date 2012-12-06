@@ -14,10 +14,10 @@ if (1==1/*!$HTTP_POST_VARS*/){
 
 	//mando el correo..
 	
-	// Se monta la cabecera del mensaje.
+		 // Se monta la cabecera del mensaje.
 		 $mcorreo = "contacto@colegiociodemexico.edu.mx";
 		 $cabeceras = "From:<$mcorreo>\n";
-	// $cabeceras .= "Reply-To:$mcorreo \n";
+		 // $cabeceras .= "Reply-To:$mcorreo \n";
 		 $cabeceras .= "MIME-version: 1.0\n";
 		 $destino = "rafael_chile@hotmail.com, ingjorgetalavera@colegiociodemexico.edu.mx, conjuncion3@gmail.com";
 		 $morigen = "Colegio Cio Contacto/Cliente";

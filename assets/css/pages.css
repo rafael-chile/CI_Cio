@@ -24,7 +24,7 @@
 
     /* {font-family:Verdana, Arial, Helvetica, sans-serif;}*/
 
-    body        {  background-image:url(http://colegiociodemexico.edu.mx/test_new/img/bg.jpg);
+    body        {  background-image:url(../../assets/img/bg.jpg);
                     background-repeat:repeat-x;
                     background-color:#001330;
                     margin:0px;
@@ -58,7 +58,7 @@
 
     #centro                 {padding:25px 15px 15px 35px;}
     
-    #footer     { background-image:url(http://colegiociodemexico.edu.mx/test_new/imagenes/Maquetacion_15.jpg); width:895px; height:80px; }
+    #footer     { background-image:url(../../assets/imagenes/Maquetacion_15.jpg); width:895px; height:80px; }
     
     p           { text-align:justify;}
     
