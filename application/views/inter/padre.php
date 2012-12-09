@@ -1,67 +1,198 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Colegio CIO de M&eacute;xico ::: </title>
+    <meta charset="utf-8">
+    <title>Colegio CIO de M&eacute;xico</title>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link type="text/css" rel="stylesheet" href="../assets/css/pages.css">
-	<link type="text/css" rel="stylesheet" href="../assets/css/pages.css">
+    
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/';?>css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/';?>css/bootstrap-responsive.min.css">
+
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/';?>css/pages.css">
+    
+    <!-- Add jQuery library -->
+    <script type="text/javascript" src="<?php echo base_url().'assets/';?>specific/source_fancy/jquery-1.8.2.min.js"></script>
+    <!-- Add fancyBox main JS and CSS files -->
+    <script type="text/javascript" src="<?php echo base_url().'assets/';?>specific/source_fancy/jquery.fancybox.js?v=2.1.1"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/';?>specific/source_fancy/jquery.fancybox.css?v=2.1.1" media="screen" />
+    <!-- Add Media helper (this is optional) -->
+    <script type="text/javascript" src="<?php echo base_url().'assets/';?>specific/source_fancy/helpers/jquery.fancybox-media.js?v=1.0.4"></script>
+
+    <script type="text/javascript">
+            $(document).ready(function() {
+            
+                $('.fancybox').fancybox();
+
+                $("#add-new-user").click(function() {
+                                $.fancybox.open({
+                                    //href : '/cio/primaria',
+                                    href : '../inter/create_user',
+                                    type : 'iframe',
+                                    width: 470,
+                                    'scrolling' : 'no'
+                                });
+                });
+
+                $(".various").fancybox({
+                        width       : '470',
+                        autoSize    : true,
+                        closeClick  : false,
+                        openEffect  : 'none',
+                        closeEffect : 'none'
+                });
+
+
+            });
+        </script>
 
 </head>
 <body>
 <center>
 
-<div id="contenedor">
+<div id="contenedor_admin">
 
-	<div style="background-image:url(<?php echo base_url().'assets/';?>imagenes/Maquetacion_01.jpg); width:895px; height:103px; text-align:right; color:#EEE;">
-"Donde los niños disfrutan aprender" &nbsp;&nbsp;
-</div>            
-<div id="menu_ppal"> 
-        <table id="menu" width="895" height="40" border="0" cellpadding="0" cellspacing="0">
-            <tr>                           
-                <td><a href="../inicio" onMouseOver="btn1.src='<?php echo base_url().'assets/';?>imagenes/menu_ppal_01.jpg'"; onMouseOut="btn1.src='<?php echo base_url().'assets/';?>imagenes/Maquetacion_02.jpg'">
-                <img src="<?php echo base_url().'assets/';?>imagenes/Maquetacion_02.jpg" alt="" name="btn1" border="0"></a></td>
+    <div style="background-image:url(<?php echo base_url().'assets/';?>img/header_notext.png); background-repeat:no-repeat; width:100%; height:103px;">
+    </div>            
+    <div id="menu_ppal"> 
+
+            <table style="height: 46px;" id="menu" width="100%" height="40" border="0" cellpadding="0" cellspacing="0">
                 
-                <td><a href="../conocenos" onMouseOver="btn2.src='<?php echo base_url().'assets/';?>imagenes/menu_ppal_02.jpg'"; onMouseOut="btn2.src='<?php echo base_url().'assets/';?>imagenes/Maquetacion_03.jpg'">
-                <img src="<?php echo base_url().'assets/';?>imagenes/Maquetacion_03.jpg" alt="" name="btn2" border="0"></a></td>
-                
-                <td><a href="../kinder" onMouseOver="btn3.src='<?php echo base_url().'assets/';?>imagenes/menu_ppal_03.jpg'"; onMouseOut="btn3.src='<?php echo base_url().'assets/';?>imagenes/Maquetacion_04.jpg'">
-                <img src="<?php echo base_url().'assets/';?>imagenes/Maquetacion_04.jpg" alt="" name="btn3" border="0"></a></td>
-                
-                <td><a href="../primaria" onMouseOver="btn4.src='<?php echo base_url().'assets/';?>imagenes/menu_ppal_04.jpg'"; onMouseOut="btn4.src='<?php echo base_url().'assets/';?>imagenes/Maquetacion_05.jpg'">
-                <img src="<?php echo base_url().'assets/';?>imagenes/Maquetacion_05.jpg" alt="" name="btn4" border="0"></a></td>
-                
-                <td><a href="../cionet" onMouseOver="btn5.src='<?php echo base_url().'assets/';?>imagenes/menu_ppal_05.jpg'"; onMouseOut="btn5.src='<?php echo base_url().'assets/';?>imagenes/Maquetacion_06.jpg'">
-                <img src="<?php echo base_url().'assets/';?>imagenes/Maquetacion_06.jpg" alt="" name="btn5" border="0"></a></td>
-                
-                <td><a href="../contacto" onMouseOver="btn6.src='<?php echo base_url().'assets/';?>imagenes/menu_ppal_06.jpg'"; onMouseOut="btn6.src='<?php echo base_url().'assets/';?>imagenes/Maquetacion_07.jpg'">
-                <img src="<?php echo base_url().'assets/';?>imagenes/Maquetacion_07.jpg" alt="" name="btn6" border="0"></a></td>
-                
-                <td><img src="<?php echo base_url().'assets/';?>imagenes/Maquetacion_08.jpg" alt="" name="btn7" border="0"></td>
-            </tr>
-        </table>           
-</div>
+            </table>           
+    </div>
 
 
-    	<div id="contenido" class="kinder" style="text-align:justify">     
-    		<div id="centro">
-    			Hola <?=$nombrePadre;?> , usted es Padre de Familia.
-    		</div>
-		</div>
+        <div id="contenido" class="admin" style="text-align:justify">     
 
-		<div id="footer">
-			<span><font color="##001330">Colegio CIO de M&eacute;xico</font></span><br/>
-			<span><font color="#fff">Tzinal #203. Col: H&eacute;roes de Padierna Tlalpan. Tel.: 56 45 20 15 / 56 44 32 77. Fax: 56 45 20 15.</font></span>
-			<span><a style="text-decoration:blink; color:#DFF2F8;" href="contacto">Contacte con nosotros!</a></span>
-		</div>
+            <div id="centro">
+                Hola <b><?=$nombrePadre; ?></b>.<br/><br/>
+                
 
+                <div id="infoMessage"><?php //echo $message;?></div>
+
+                <div class="tabbable tabs-left"> <!-- Only required for left/right tabs -->
+                  
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab">Información General</a></li>
+                    <li><a href="#tab2" data-toggle="tab">Hijos</a></li>
+                    <li><a href="#tab3" data-toggle="tab">Circulares</a></li>
+                  </ul>
+                  
+                  <div class="tab-content">
+                    <div class="tab-pane span10 active" id="tab1">
+                      
+                      <table class="table table-bordered">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Telef&oacute;no</th>
+                            <th>Grupos</th>
+                            <th>Estado del usuario</th>
+                            <th>Edici&oacute;n</th>
+
+                        </tr>
+                        <?php //foreach ($users as $user):?>
+                            <tr>
+                                <td>first_name</td>
+                                <td>last_name</td>
+                                <td>email</td>
+                                <td>phone</td>
+                                <td>
+                                    group->name
+
+                                </td>
+                                <td><?php echo 'Activo';?></td>
+                                <td><?php echo 'Editar';?></td>
+                            </tr>
+                        <?php //endforeach;?>
+                      </table>
+
+                    </div>
+
+                    <div class="tab-pane span10" id="tab2">
+
+                      <table class="table table-bordered">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>CURP</th>
+                            <th>Fecha Nacimiento</th>
+                            <th>Fecha Ingreso</th>
+                            <th>Direcci&oacute;n</th>
+                            <th>Tel&eacute;fono</th>
+                            <th>Grado</th>
+                            <th>Grupo</th>
+                            <th>Calificaciones</th>
+                            <th>Comentarios</th>
+                        </tr>
+                        <?php //foreach ($alumnos as $alumno):?>
+                            <tr>
+                                <td>nombre</td>
+                                <td>apellido_pat</td>
+                                <td>apellido_mat</td>
+                                <td>curp</td>
+                                <td>fecha_nac</td>                                   
+                                <td>fecha_ingreso</td>                                   
+                                <td>direccion</td>                                   
+                                <td>telefono</td>                                    
+                                <td>grado</td>                                   
+                                <td>grupo</td>                                   
+                                <!--<td><?php //echo anchor("", 'Editar');?></td>-->
+                                <td><a class="various" data-fancybox-type="iframe" href="" >Ver</a></td>
+                                <td><a href="" >Leer</a></td>
+                                
+                            </tr>
+                        <?php //endforeach;?>
+                      </table>
+
+                    </div>
+
+
+                    <div class="tab-pane span10" id="tab3">
+
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>T&iacute;tulo</th>
+                                <th>A&ntilde;o</th>
+                                <th>N&uacute;mero</th>
+                                <th>Fecha</th>
+                                <th>Asunto</th>
+                                <th>Contenido</th>
+                            </tr>
+                            <?php foreach ($circulares as $circular):?>
+                                <tr>
+                                    <td><?php echo $circular->id . "-" . $circular->titulo;?></td>
+                                    <td><?php echo $circular->anio;?></td>
+                                    <td><?php echo $circular->numero;?></td>
+                                    <td><?php echo $circular->fecha;?></td>
+                                    <td><?php echo $circular->asunto;?></td>                                    
+                                    <td><?php echo $circular->contenido;?></td>                                 
+                                </tr>
+                            <?php endforeach;?>
+                        </table>
+                  
+
+                    </div>
+                    
+                  </div>
+
+                </div>
+
+
+            </div>      
+    
+        </div>
+
+
+        
 </div> <!-- id="contenedor"-->
 </center>
-<script src="assets/js/_bootstrap.min.js"></script>
-<script src="assets/js/_modernizr.js"></script>
+<script src="<?php echo base_url().'assets/';?>js/bootstrap.min.js"></script>
+<script src="<?php echo base_url().'assets/';?>js/modernizr.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
      
