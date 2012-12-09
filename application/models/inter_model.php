@@ -17,6 +17,12 @@ class Inter_model extends CI_Model
 
 	}
 
+	//#####################################
+	//#####################################
+	//			ALUMNOS
+	//#####################################
+	//#####################################
+
 	/*GET ONLY ONE*/
 	public function get_user($id = NULL)
 	{
@@ -38,7 +44,7 @@ class Inter_model extends CI_Model
 		//print_r($query->result());
 	}
 
-	/*GET ONLY ONE*/
+	/*GET ONLY ONE FOR SEARCH*/
 	public function get_user_for_ajax()
 	{
 				
@@ -89,22 +95,6 @@ class Inter_model extends CI_Model
 
 
 	/**
-	 **/
-	public function get_all_circulares()
-	{
-		$query = $this->db->get('circulares');
-
-		if ($query->num_rows() >= 1)
-		{
-			return $query->result();
-		}
-		else{
-			return FALSE;
-		}
-	}
-
-
-	/**
 	 * Add
 	 *
 	 * @return bool
@@ -113,41 +103,6 @@ class Inter_model extends CI_Model
 	public function add_alumno($additional_data = array())
 	{
 		
-		/*if ($this->identity_column == 'email' && $this->email_check($email))
-		{
-			$this->set_error('account_creation_duplicate_email');
-			return FALSE;
-		}
-		elseif ($this->identity_column == 'username' && $this->username_check($username))
-		{
-			$this->set_error('account_creation_duplicate_username');
-			return FALSE;
-		}
-
-		// If username is taken, use username1 or username2, etc.
-		if ($this->identity_column != 'username')
-		{
-			$original_username = $username;
-			for($i = 0; $this->username_check($username); $i++)
-			{
-				if($i > 0)
-				{
-					$username = $original_username . $i;
-				}
-			}
-		}*/
-
-		// Users table.
-		/*$data = array(
-		    'username'   => $username,
-		    'password'   => $password,
-		    'email'      => $email,
-		    'ip_address' => $ip_address,
-		    'created_on' => time(),
-		    'last_login' => time(),
-		    'active'     => ($manual_activation === false ? 1 : 0)
-		);*/
-
 		$datos_separados = array();
 		$columnas = $this->db->list_fields('alumnos');
 
@@ -169,37 +124,6 @@ class Inter_model extends CI_Model
 			return false;
 		}
 		
-
-
-		//filter out any data passed that doesnt have a matching column in the users table
-		//and merge the set user data and the additional data
-		/*$user_data = array_merge($this->_filter_data($this->tables['users'], $additional_data), $data);
-
-		$this->trigger_events('extra_set');
-
-		$this->db->insert($this->tables['users'], $user_data);
-
-		$id = $this->db->insert_id();
-
-		if (!empty($groups))
-		{
-			//add to groups
-			foreach ($groups as $group)
-			{
-				$this->add_to_group($group, $id);
-			}
-		}
-
-		//add to default group if not already set
-		$default_group = $this->where('name', $this->config->item('default_group', 'ion_auth'))->group()->row();
-		if ((isset($default_group->id) && !isset($groups)) || (empty($groups) && !in_array($default_group->id, $groups)))
-		{
-			$this->add_to_group($default_group->id, $id);
-		}
-
-		$this->trigger_events('post_register');
-
-		return (isset($id)) ? $id : FALSE;*/
 	}
 
 
@@ -296,12 +220,49 @@ class Inter_model extends CI_Model
 		}*/
 	}
 
+	//#####################################
+	//#####################################
+	//			CIRCULARES
+	//#####################################
+	//#####################################
+
+	/**
+	 **/
+	public function get_all_circulares()
+	{
+		$query = $this->db->get('circulares');
+
+		if ($query->num_rows() >= 1)
+		{
+			return $query->result();
+		}
+		else{
+			return FALSE;
+		}
+	}
+
+
+
+	/**
+	 * retrieve all info from a "circular"
+	 **/
+	public function get_all_circular_fields($id)
+	{
+		
+		$this->db->select('*');
+		$this->db->from('circulares');
+		$this->db->where('id', $id);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		
+		return($query->result());
+
+	}
+
+	
 
 	/**
 	 * add_circular
-	 *
-	 * @return bool
-	 * @author Mathew
 	 **/
 	public function add_circular($titulo,$anio,$numero,$fecha,$asunto,$contenido)
 	{
@@ -319,6 +280,65 @@ class Inter_model extends CI_Model
 
 		
 	}
+
+
+	/**
+	 * update_circular
+	 **/
+	
+	public function update_circular($id_circular, $additional_data = array())
+	{
+		
+		$datos_separados = array();
+		$columnas = $this->db->list_fields('circulares');
+
+		if (is_array($additional_data))
+		{
+			foreach ($columnas as $column)
+			{
+				if (array_key_exists($column, $additional_data))
+					$datos_separados[$column] = $additional_data[$column];
+			}
+		}
+
+		//return $datos_separados;
+		$this->db->where('id', $id_circular);
+		if($this->db->update('circulares', $datos_separados)){
+		
+			return true;
+		
+		}else{
+		
+			return false;
+		}
+		
+	}
+
+
+	/**
+	 * Delete Circular
+	 **/
+	public function delete_circular($id)
+	{
+		
+		$this->db->where('id',$id);
+		if($this->db->delete('circulares')){
+		
+			return true;
+		
+		}else{
+		
+			return false;
+		}
+		
+	}
+
+
+	//#####################################
+	//#####################################
+	//			USER - ADMIN's
+	//#####################################
+	//#####################################
 
 	/**
 	 * Checks username

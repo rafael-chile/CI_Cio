@@ -55,6 +55,9 @@
 	  						break;
 	  case 'nuevo_circular': 	
 	  						echo '<p>Se agreg&oacute; una nueva circular.</p>';
+	  						break;  
+	  case 'editado_circular': 	
+	  						echo '<p>La circular ha sido actualizada.</p>';
 	  						break; 
 	 }
 

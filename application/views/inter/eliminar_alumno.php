@@ -18,7 +18,7 @@
 <body>
 <h1>Eliminar Alumno</h1>
 
-<p>&iquest;Est&aacute; seguro de eliminar este usuario: '<?php echo $user[0]->nombre; ?>'</p>
+<p>&iquest;Est&aacute; seguro de eliminar este usuario: '<?php echo $user[0]->nombre; ?>'?</p>
 	
 <?php echo form_open("alumnos/eliminar_alumno/".$user[0]->id);?>
 

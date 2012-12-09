@@ -192,8 +192,6 @@ class Alumnos extends CI_Controller {
 	//#####################################
 	//ELIMINAR ALUMNO
 	//#####################################
-
-	//create a new user
 	function eliminar_alumno($id)
 	{
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
@@ -255,7 +253,7 @@ class Alumnos extends CI_Controller {
 
 
 	//#####################################
-	//ELIMINAR ALUMNO
+	//ACTUALIZAR ALUMNO
 	//#####################################
 
 	//create a new user
@@ -312,71 +310,6 @@ class Alumnos extends CI_Controller {
 		else
 		{ 
 			
-			/*$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
-			//display the create user form
-			$this->data['nombre'] = array(
-				'name'  => 'nombre',
-				'id'    => 'nombre',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('nombre'),
-			);
-			$this->data['apellido_pat'] = array(
-				'name'  => 'apellido_pat',
-				'id'    => 'apellido_pat',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('apellido_pat'),
-			);
-			$this->data['apellido_mat'] = array(
-				'name'  => 'apellido_mat',
-				'id'    => 'apellido_mat',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('apellido_mat'),
-			);
-			$this->data['curp'] = array(
-				'name'  => 'curp',
-				'id'    => 'curp',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('curp'),
-			);
-
-			$this->data['fecha_nac'] = array(
-				'name'  => 'fecha_nac',
-				'id'    => 'fecha_nac',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('fecha_nac'),
-			);
-
-			$this->data['fecha_ingreso'] = array(
-				'name'  => 'fecha_ingreso',
-				'id'    => 'fecha_ingreso',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('fecha_ingreso'),
-			);
-			$this->data['direccion'] = array(
-				'name'  => 'direccion',
-				'id'    => 'direccion',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('direccion'),
-			);
-			$this->data['telefono'] = array(
-				'name'  => 'telefono',
-				'id'    => 'telefono',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('telefono'),
-			);
-			$this->data['grado'] = array(
-				'name'  => 'grado',
-				'id'    => 'grado',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('grado'),
-			);
-			$this->data['grupo'] = array(
-				'name'  => 'grupo',
-				'id'    => 'grupo',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('grupo'),
-			);*/
-
 			//---- ¡¡¡¡¡¡IMPORTANTE!!!!!!
 			//Mantiene el INTER en la URL porque está en la carpeta INTER de las vistas.
 			//----

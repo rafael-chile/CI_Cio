@@ -193,6 +193,7 @@
 	    		      	<table class="table table-bordered">
 	    		      		<tr>
 	    		      			<th>T&iacute;tulo</th>
+	    		      			<th>A&ntilde;o</th>
 	    		      			<th>N&uacute;mero</th>
 	    		      			<th>Fecha</th>
 	    		      			<th>Asunto</th>
@@ -202,13 +203,14 @@
 	    		      		</tr>
 	    		      		<?php foreach ($circulares as $circular):?>
 	    		      			<tr>
-	    		      				<td><?php echo $circular->titulo;?></td>
+	    		      				<td><?php echo $circular->id . "-" . $circular->titulo;?></td>
+	    		      				<td><?php echo $circular->anio;?></td>
 	    		      				<td><?php echo $circular->numero;?></td>
 	    		      				<td><?php echo $circular->fecha;?></td>
 	    		      				<td><?php echo $circular->asunto;?></td>			    					
 	    		      				<td><?php echo $circular->contenido;?></td>			    					
-	    		      				<td><a class="various" data-fancybox-type="iframe" href="#/<?php echo $circular->id; ?>" >Editar</a></td>
-	    		      				<td><a href="#/<?php echo $circular->id; ?>" >Eliminar</a></td>
+	    		      				<td><a class="various" data-fancybox-type="iframe" href="../inter/actualizar_circular/<?php echo $circular->id; ?>" >Editar</a></td>
+	    		      				<td><a href="../inter/eliminar_circular/<?php echo $circular->id; ?>" >Eliminar</a></td>
 	    		      				
 	    		      			</tr>
 	    		      		<?php endforeach;?>

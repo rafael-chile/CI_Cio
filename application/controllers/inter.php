@@ -777,6 +777,12 @@ class Inter extends CI_Controller {
 
 	}
 
+	//#####################################
+	//#####################################
+	//			CIRCULARES
+	//#####################################
+	//#####################################
+
 	//create new "circular"
 	function crear_circular()
 	{
@@ -786,8 +792,6 @@ class Inter extends CI_Controller {
 		{
 			redirect('inter', 'refresh');
 		}
-
-		
 
 		//validate form input
 		$this->form_validation->set_rules('titulo', 'Título', 'required|xss_clean');
@@ -800,20 +804,18 @@ class Inter extends CI_Controller {
 
 		if ($this->form_validation->run() == true)
 		{
-			$titulo   	= $this->input->post('titulo');
-			$anio    	= $this->input->post('anio');
-			$numero 	= $this->input->post('numero');
-			$fecha    	= $this->input->post('fecha');
-			$asunto 	= $this->input->post('asunto');
-			$contenido_circular 	= $this->input->post('contenido_circular');
+			$titulo   			= $this->input->post('titulo');
+			$anio    			= $this->input->post('anio');
+			$numero 			= $this->input->post('numero');
+			$fecha    			= $this->input->post('fecha');
+			$asunto 			= $this->input->post('asunto');
+			$contenido_circular = $this->input->post('contenido_circular');
 		}
 
 		
 		if ($this->form_validation->run() == true && $this->inter_model->add_circular($titulo,$anio,$numero,$fecha,$asunto,$contenido_circular))
 		{ 
 			
-			//check to see if we are creating the user
-			//redirect them back to the admin page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
 			//redirect("inter", 'refresh');			
 			$data['action']='nuevo_circular';
@@ -879,6 +881,124 @@ class Inter extends CI_Controller {
 		}
 	}
 
+	//edit "circular"
+	function actualizar_circular($id = NULL)
+	{
+		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
+		{
+			redirect('inter', 'refresh');
+		}
+
+		//validate form input
+		$this->form_validation->set_rules('titulo', 'Título', 'required|xss_clean');
+		$this->form_validation->set_rules('anio', 'Año', 'required|xss_clean');
+		$this->form_validation->set_rules('numero', 'Número', 'required|xss_clean');
+		$this->form_validation->set_rules('fecha', 'Fecha', 'required|xss_clean');
+		$this->form_validation->set_rules('asunto', 'Asunto', 'required|xss_clean');
+		$this->form_validation->set_rules('contenido_circular', 'Contenido', 'required|xss_clean');
+
+		if ($this->form_validation->run() == true)
+		{
+			
+			$id_circular    	 		= $this->input->post('id');
+
+			$info_circular = array(
+				'titulo'   				=> $this->input->post('titulo'),
+				'anio'  				=> $this->input->post('anio'),
+				'numero'   				=> $this->input->post('numero'),
+				'fecha'   				=> $this->input->post('fecha'),
+				'asunto'   				=> $this->input->post('asunto'),
+				'contenido_circular'	=> $this->input->post('contenido_circular'),
+			);
+		}
+		
+		if ($this->form_validation->run() == true && $this->inter_model->update_circular($id_circular,$info_circular))
+		{ 
+			$this->session->set_flashdata('message', $this->ion_auth->messages());
+
+			$data['action']='editado_circular';
+			$this->load->view('templates/messages',$data);
+		}
+		else
+		{ 
+			
+			//---- ¡¡¡¡¡¡IMPORTANTE!!!!!!
+			//Mantiene el INTER en la URL porque está en la carpeta INTER de las vistas.
+			//----
+
+			$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+
+			if(!isset($id)){
+				$id = $this->input->post('id');
+			}
+
+			$this->data['circular'] = $this->inter_model->get_all_circular_fields($id);
+			$this->load->view('inter/actualizar_circular', $this->data);
+
+		}
+		
+	}
+
+
+	//#####################################
+	//ELIMINAR CIRCULAR
+	//#####################################
+	function eliminar_circular($id)
+	{
+		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
+		{
+			redirect('inter', 'refresh');
+		}
+
+		//$this->load->library('form_validation');
+		$this->form_validation->set_rules('confirm', 'confirmation', 'required');
+		$this->form_validation->set_rules('id', 'circular ID', 'required|alpha_numeric');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			$data['circular'] = $this->inter_model->get_all_circular_fields($id);
+			$this->load->view('inter/eliminar_circular', $data);
+		}
+		else
+		{
+			// do we really want to deactivate?
+			if ($this->input->post('confirm') == 'yes')
+			{
+				// do we have a valid request?
+				if ($id != $this->input->post('id'))
+				{				
+					show_error('This form post did not pass our security checks.');
+				}
+
+				// do we have the right userlevel?
+				if ($this->ion_auth->logged_in() && $this->ion_auth->is_admin())
+				{
+					$this->session->set_flashdata('message', $this->ion_auth->messages());
+					if($this->inter_model->delete_circular($id)){
+						redirect('inter','refresh');	
+					}
+					
+
+				}
+			}
+			elseif($this->input->post('confirm') == 'no')
+			{
+				
+				redirect('inter','refresh');
+			}
+
+			//redirect them back to the auth page
+			redirect('inter', 'refresh');		
+
+		}
+
+		
+		
+	}
+
+	//#####################################
+	//		TERMINA CIRCULARES
+	//#####################################
 
 	function _get_csrf_nonce()
 	{
