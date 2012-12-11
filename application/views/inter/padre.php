@@ -67,7 +67,7 @@
         <div id="contenido" class="admin" style="text-align:justify">     
 
             <div id="centro">
-                Hola <b><?=$nombrePadre; ?></b>.<br/><br/>
+                Bienvenido <b><?=$nombrePadre; ?></b>.<br/><br/>
                 
 
                 <div id="infoMessage"><?php //echo $message;?></div>
@@ -75,9 +75,11 @@
                 <div class="tabbable tabs-left"> <!-- Only required for left/right tabs -->
                   
                   <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab1" data-toggle="tab">Información General</a></li>
-                    <li><a href="#tab2" data-toggle="tab">Hijos</a></li>
-                    <li><a href="#tab3" data-toggle="tab">Circulares</a></li>
+                    <li class="active"><a href="#tab1" data-toggle="tab">Hijos</a></li>
+                    <li><a href="#tab2" data-toggle="tab">Circulares</a></li>
+                    <li><a href="#tab3" data-toggle="tab">Actividades</a></li>
+                    <li><a href="#tab4" data-toggle="tab">Galer&iacute;a</a></li>
+                    <li><a href="#tab5" data-toggle="tab">Informaci&oacute;n General</a></li>
                   </ul>
                   
                   <div class="tab-content">
@@ -86,39 +88,8 @@
                       <table class="table table-bordered">
                         <tr>
                             <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Correo</th>
-                            <th>Telef&oacute;no</th>
-                            <th>Grupos</th>
-                            <th>Estado del usuario</th>
-                            <th>Edici&oacute;n</th>
-
-                        </tr>
-                        <?php //foreach ($users as $user):?>
-                            <tr>
-                                <td>first_name</td>
-                                <td>last_name</td>
-                                <td>email</td>
-                                <td>phone</td>
-                                <td>
-                                    group->name
-
-                                </td>
-                                <td><?php echo 'Activo';?></td>
-                                <td><?php echo 'Editar';?></td>
-                            </tr>
-                        <?php //endforeach;?>
-                      </table>
-
-                    </div>
-
-                    <div class="tab-pane span10" id="tab2">
-
-                      <table class="table table-bordered">
-                        <tr>
-                            <th>Nombre</th>
                             <th>Apellido Paterno</th>
-                            <th>Apellido Materno</th>
+                            <!--<th>Apellido Materno</th>
                             <th>CURP</th>
                             <th>Fecha Nacimiento</th>
                             <th>Fecha Ingreso</th>
@@ -127,13 +98,13 @@
                             <th>Grado</th>
                             <th>Grupo</th>
                             <th>Calificaciones</th>
-                            <th>Comentarios</th>
+                            <th>Comentarios</th>-->
                         </tr>
-                        <?php //foreach ($alumnos as $alumno):?>
+                        <?php foreach ($hijos as $hijo):?>
                             <tr>
-                                <td>nombre</td>
-                                <td>apellido_pat</td>
-                                <td>apellido_mat</td>
+                                <td><?php echo $hijo->nombre;?></td>
+                                <td><?php echo $hijo->apellido_pat;?></td>
+                                <!--<td>apellido_mat</td>
                                 <td>curp</td>
                                 <td>fecha_nac</td>                                   
                                 <td>fecha_ingreso</td>                                   
@@ -141,12 +112,37 @@
                                 <td>telefono</td>                                    
                                 <td>grado</td>                                   
                                 <td>grupo</td>                                   
-                                <!--<td><?php //echo anchor("", 'Editar');?></td>-->
                                 <td><a class="various" data-fancybox-type="iframe" href="" >Ver</a></td>
-                                <td><a href="" >Leer</a></td>
+                                <td><a href="" >Leer</a></td>-->
                                 
                             </tr>
-                        <?php //endforeach;?>
+                        <?php endforeach;?>
+                      </table>
+
+
+                    </div>
+
+                    <div class="tab-pane span10" id="tab2">
+
+                      <table class="table table-bordered">
+                          <tr>
+                              <th>T&iacute;tulo</th>
+                              <th>A&ntilde;o</th>
+                              <th>N&uacute;mero</th>
+                              <th>Fecha</th>
+                              <th>Asunto</th>
+                              <th>Contenido</th>
+                          </tr>
+                          <?php foreach ($circulares as $circular):?>
+                              <tr>
+                                  <td><?php echo $circular->id . "-" . $circular->titulo;?></td>
+                                  <td><?php echo $circular->anio;?></td>
+                                  <td><?php echo $circular->numero;?></td>
+                                  <td><?php echo $circular->fecha;?></td>
+                                  <td><?php echo $circular->asunto;?></td>                                    
+                                  <td><?php echo $circular->contenido;?></td>                                 
+                              </tr>
+                          <?php endforeach;?>
                       </table>
 
                     </div>
@@ -154,27 +150,25 @@
 
                     <div class="tab-pane span10" id="tab3">
 
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>T&iacute;tulo</th>
-                                <th>A&ntilde;o</th>
-                                <th>N&uacute;mero</th>
-                                <th>Fecha</th>
-                                <th>Asunto</th>
-                                <th>Contenido</th>
-                            </tr>
-                            <?php foreach ($circulares as $circular):?>
-                                <tr>
-                                    <td><?php echo $circular->id . "-" . $circular->titulo;?></td>
-                                    <td><?php echo $circular->anio;?></td>
-                                    <td><?php echo $circular->numero;?></td>
-                                    <td><?php echo $circular->fecha;?></td>
-                                    <td><?php echo $circular->asunto;?></td>                                    
-                                    <td><?php echo $circular->contenido;?></td>                                 
-                                </tr>
-                            <?php endforeach;?>
-                        </table>
+                        - Talleres<br/>
+                        - Colegiaturas<br/>
+                        - Calendario cio<br/>
+                        - Visitas programadas<br/>
                   
+
+                    </div>
+
+                    <div class="tab-pane span10" id="tab4">
+
+                        - Fotos<br/>                    
+
+                    </div>
+
+                    <div class="tab-pane span10" id="tab5">
+
+                        - Lista de utiles<br/> 
+                        - Uniformes<br/> 
+                        - Reglamento<br/>                
 
                     </div>
                     

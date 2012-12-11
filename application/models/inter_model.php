@@ -94,6 +94,28 @@ class Inter_model extends CI_Model
 	}
 
 
+	public function get_children_from_father($id)
+	{
+		//$this->trigger_events('user');
+
+		//if no id was passed use the current users id
+		$id;// || $id = $this->session->userdata('user_id');
+
+		
+		$this->db->select('alumnos.nombre, alumnos.apellido_pat');
+		$this->db->from('alumnos_users');
+		$this->db->join('users', 'alumnos_users.user_id = users.id');
+		$this->db->join('alumnos', 'alumnos_users.alumno_id=alumnos.id');
+		$this->db->where('users.id', $id);
+		//$this->db->limit(1);
+		$query = $this->db->get();
+
+		//$this->users();
+
+		return($query->result());
+		//print_r($query->result());
+	}
+
 	/**
 	 * Add
 	 *

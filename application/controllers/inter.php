@@ -180,12 +180,16 @@ class Inter extends CI_Controller {
 
 				//redirect('inter/alumno');
 				//Agregar atributos de solo lectura a $data
-				//echo "Puedo Ver";
-				$this->data['nombrePadre']='Padre 1';
-				//Mostrar página del alumno.
-				//print_r($this->ion_auth->user()->row());
-				//$this->load->view('alumno',$data);
 
+				$this->data['nombrePadre']=$this->session->userdata('username');
+
+				$var_id = $this->session->userdata('user_id');
+				//$this->data['idPadre']=$var_id;
+				
+				//Send children info to "Padre Page"
+				$this->data['hijos'] = $this->inter_model->get_children_from_father($var_id);
+				
+				//Send circulares
 				$this->data['circulares'] = $this->inter_model->get_all_circulares();
 				$this->load->view('inter/padre',$this->data);
 		}
