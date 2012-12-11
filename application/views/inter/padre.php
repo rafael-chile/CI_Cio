@@ -83,7 +83,7 @@
                   </ul>
                   
                   <div class="tab-content">
-                    <div class="tab-pane span10 active" id="tab1">
+                    <div class="tab-pane span4 active" id="tab1">
                       
                       <table class="table table-bordered">
                         <tr>
@@ -124,6 +124,9 @@
 
                     <div class="tab-pane span10" id="tab2">
 
+
+                      - Avisos de ultima hora<br/>
+                      - Circulares<br/>
                       <table class="table table-bordered">
                           <tr>
                               <th>T&iacute;tulo</th>
